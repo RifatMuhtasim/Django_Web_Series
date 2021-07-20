@@ -1,0 +1,183 @@
+
+
+.blockx{
+    padding-top: 60px;
+}
+
+.hero-btn-x{
+    font-size: 25px;
+    border-radius: 30px;
+    border:2px solid;
+    padding: 0px 30px;
+    text-decoration: none;
+}
+
+.hero-btn-x:hover{
+    background-color: #086068;
+}
+
+
+#aboutx{
+    color: #d3d3d3;
+    background-color: #293B5F;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.workx {
+    display:flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}
+
+.tm-section-pad-top-x {
+    padding-top: 70px;
+    margin-bottom: -70px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tm-section-pad-top-y {
+    padding-top: 30px;
+    margin-bottom: 40px;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.gimg{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.hb-img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+
+@media (max-width: 768px){
+    .sliderbar{
+        display: none;
+    }
+    .mainbar{
+        width: 100%;
+        padding-right: -60px;
+    }
+}
+
+.hb-imgx{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.metadata{
+    margin-top: -15px;
+}
+
+
+/* Wasi Group & WasiLab */
+.WasiGroup{
+	font-size: 20px;
+	margin: 30px 100px;
+	/* background-color: #202030; */
+	color: white;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+	border-radius: 20px;
+	justify-content: space-between;
+	/* 1D3557  457B9D  */
+}
+.WasiGroupH {
+	font-size: 40px;
+	padding-bottom: 20px;
+}
+.WasiGroupTxt {
+	background-color: #457B9D ;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	padding: 52px;
+}
+.p4rH{
+	font-size: 40px;
+	padding-bottom: 20px;
+}
+.p4rTxt {
+	
+	background-color: #1D3557 ;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	padding: 100px 60px 100px 40px;
+}
+
+@media screen and (max-width: 800px){
+	.WasiGroup{
+		grid-template-columns: 1fr;
+		margin: 30px 20px;
+		font-size: 18px;
+		text-align: justify;
+	}
+	.WasiGroupH{
+		font-size: 26px;
+		padding-bottom: 10px;
+	}
+	.WasiGroupTxt {
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+		border-bottom-left-radius: 0px;
+		padding: 30px;
+	}
+	.p4rH{
+		font-size: 26px;
+		padding-bottom: 5px;
+	}
+	.p4rTxt{
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
+		border-top-right-radius: 0px;
+		padding: 20px;
+	}
+	.profile-img{
+		width: 100%;
+		height: 50px;
+		object-fit: cover;
+		border-radius: 20px;
+	}
+	
+}
+
+.profile-img{
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media screen and (max-width: 500px){
+	.WasiGroup{
+		margin: 10px 20px;
+	}
+	/* .hb-img{
+		width: 100%;
+		height: 60px;
+		object-fit: cover;
+	} */
+	.hb-imgz{
+		width: 100%;
+		height: 60px;
+		object-fit: cover;
+	}
+}
+

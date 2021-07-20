@@ -1,0 +1,64 @@
+#sto {
+  margin-bottom: 0px;
+}
+
+#storyx {
+  background-color: white;
+}
+
+#storyx img {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#storyx #blog-text {
+  padding-left: 7px;
+  padding-right: 14px;
+}
+
+#storyx #blog-text .topx a {
+  color: #0c85bd;
+}
+
+#storyx .topx {
+  margin-bottom: -15px;
+}
+
+#storyx .meta {
+  padding-top: 0px;
+}
+
+#storyx #read-more {
+  padding-top: 5px;
+}
+
+#storyx .vvv {
+  border-top: 2px solid #aaaaaa;
+  margin-top: 37px;
+  margin-bottom: -30px;
+}
+
+#paginated {
+  padding-top: 15px;
+  color: #2874ae;
+}
+
+#paginated #prenex {
+  font-size: 28px;
+}
+
+#paginated #prenex a {
+  margin: auto;
+}
+
+#paginated .btni {
+  background-color: #2368b1;
+  color: white;
+}
+
+#hero {
+  margin-bottom: 0px;
+}
+/*# sourceMappingURL=story.css.map */

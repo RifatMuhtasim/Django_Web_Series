@@ -1,0 +1,24 @@
+{% extends 'primary.html' %}
+{% load crispy_forms_tags %}
+{% block primary %}
+<div>
+    <section id="heroy" class=" tm-parallaxy">
+      
+        <div class=" tm-hero-text-container">
+              <div id="frmp">
+                  <h3 class="head">Update Post</h3>
+                  <div>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                             {{form.media}}
+                            {{form|crispy}}
+                        <button class="btn" type="submit">Post</button>
+                    </form>
+                  </div>
+              </div>
+               
+        </div>
+    </section>
+
+</div>
+{% endblock %}

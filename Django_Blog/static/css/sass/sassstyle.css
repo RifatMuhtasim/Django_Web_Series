@@ -1,0 +1,108 @@
+#prm {
+  margin-bottom: -30px;
+}
+
+#frm {
+  background-color: #1D3557;
+  color: #bcc1c1;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+#frm input {
+  padding: 10px;
+  margin-bottom: 35px;
+  border-radius: 10px;
+}
+
+#frm button {
+  background-color: #494949;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+
+#frm button:hover {
+  background-color: #222222;
+}
+
+#frm .para {
+  color: #9eacac;
+  padding-top: 5px;
+}
+
+#frm .para2 {
+  color: azure;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#frm .para2 a {
+  padding-left: 10px;
+}
+
+#frm .head {
+  color: azure;
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#frm .head a {
+  padding-left: 7px;
+}
+
+#heroy {
+  background-color: #30d7e6;
+  padding: 100px 0px;
+}
+
+@media screen and (max-width: 660px) {
+  .p4r {
+    padding-left: 20px;
+  }
+  .pd-left {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .contactg {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .refu {
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  #frmp {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  #frm {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+/*# sourceMappingURL=sassstyle.css.map */

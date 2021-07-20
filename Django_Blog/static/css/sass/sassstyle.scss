@@ -1,0 +1,88 @@
+
+#prm{
+    margin-bottom: -30px;
+}
+
+#frm {
+    background-color: #1D3557;
+    color:rgb(188, 193, 193);
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 20px;
+    border-radius: 20px;
+    input{
+        padding: 10px;
+        margin-bottom: 35px;
+        border-radius: 10px;
+    }
+    button{
+        background-color: rgb(73, 73, 73);
+        color:rgb(255, 255, 255);
+        padding: 5px 15px;
+        border-radius: 10px;
+    }
+    button:hover{
+        background-color: rgb(34, 34, 34);
+    }
+    .para{
+        color:rgb(158, 172, 172);
+        padding-top: 5px;
+    }
+    .para2{
+        color:azure;
+        display: flex;
+        justify-content: center;
+        a{
+            padding-left: 10px;
+        }
+    }
+    .head{
+        color: azure;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a{
+            padding-left: 7px;
+        }
+    }   
+}
+
+#heroy{
+  background-color: #30d7e6; 
+    padding: 100px 0px;
+}
+
+
+@media screen and (max-width: 660px) {
+     .p4r{
+         padding-left: 20px;
+     } 
+     .pd-left{
+         padding-left: 20px;
+         padding-right: 20px;
+     }  
+     .contactg{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+     }
+     .refu{
+         padding-top: 50px;
+     }
+}
+
+@media screen and (max-width:660px){
+    #frmp{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #frm{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+}
+
+

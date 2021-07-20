@@ -1,0 +1,32 @@
+{% extends "basestory.html" %}
+{% block StoryPost %}
+<div id="storydetail">
+    <div>
+          <section id="introduction" class="tm-section-pad-top-y ">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12">
+                    <img src="{{object.Image.url}}" alt="Image" class="img-fluid tm-intro-img hb-imgz" />
+                  </div>
+                  <div class="col-12">
+                    <div id="write" class="tm-intro-text-container">
+                        <h2 class="tm-text-primary mb-1 tm-section-title pr-1">{{object.Title}}</h2>
+                        <div class="d-flex justify-content-start">
+                          <p class="mb-1 tm-intro-text pr-2"> {{object.StartPostTime|date:"F d, Y  | "}} </p>
+                          {% if object.StartPostAuthor == user %}
+                          <a href="{% url 'user-delete-post' object.id %}" class="text-info pl-2 pr-3"> Delete</a>
+                          <a id="NewL" href="{% url 'user-update-post' object.id %}" class="text-info pr-2">Update </a>
+                          <a id="NewM" href="{% url 'user-update-post-m' object.id %}" class="text-info pr-2">Update </a>
+                          {% endif %}
+                        </div>
+                       
+                          <p class="mb-4 tm-intro-text mt-4"> {{object.Body|safe}} </p>
+                          
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+      </div>
+</div>
+{% endblock %}
