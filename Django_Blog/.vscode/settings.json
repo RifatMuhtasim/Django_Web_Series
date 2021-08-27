@@ -1,0 +1,6 @@
+{
+    "editor.fontSize": 24,
+    "editor.fontFamily": "'Ubuntu', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "terminal.integrated.fontSize": 18,
+    "git.ignoreLimitWarning": true
+}
