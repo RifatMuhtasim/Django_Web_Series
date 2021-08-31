@@ -1,0 +1,29 @@
+{% extends 'headerfooter.html' %}
+{% block log %}
+        <div class="py-5 container ">
+                <div class="row bg-secondary mt-5 ">
+                        <div class=" col-12 col-sm-12 col-md-6">
+                                <form action="" method="POST" class="p-5 m-5" style="width: 90%">
+                                        {% csrf_token %}
+                                        <input type="text" placeholder="First Name" name="first_name" class="container-fluid p-1">
+                                        <input type="text" placeholder="Last Name" name="last_name" class="container-fluid p-1 mt-3">
+                                        <input type="text" placeholder="Username" name="username" class="container-fluid my-3 p-1">
+                                        <input type="email" placeholder="Email" name="email" class="container-fluid p-1">
+                                        <input type="password" placeholder="Password" name="password1" class="container-fluid my-3 p-1">
+                                        <input type="password" placeholder="Confirm Password" name="password2" class="container-fluid p-1">
+                                        <div>
+                                                {% for message in messages%}
+                                                        <p class="text-black">{{message}}</p>
+                                                {% endfor %}
+                                        </div>
+                                        <div class="pt-2">
+                                                <button type="submit" class="btn btn-info" >Sign Up</button>
+                                        </div>
+                                </form>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 mt-5 p-5">
+                                rifat world
+                        </div>
+                </div>
+        </div>
+{% endblock %}

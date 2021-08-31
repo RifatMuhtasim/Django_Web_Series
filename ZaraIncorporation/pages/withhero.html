@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- hero section Start  -->
+    <section class="hero">
+        <div class="heroimg" ></div>
+        <div class="HeroImgOver"></div>
+        <div class="heroTxt container">
+            <p class="heroSmTxt">We plan, we create, we execute</p>
+            <p class="heroLgTxt">Make a impressive AI website with us.</p>
+        </div>
+        <div class="heroIcon">
+            <div class="facebook">
+                <a href="https://www.facebook.com/wasilab.ltd" target="_blank">
+                    <i class="fab fa-facebook-square fa-2x"></i>
+                </a>
+            </div>
+            <div class="instagram">
+                <a href="https://www.instagram.com/wasi_lab" target="_blank">
+                    <i class="fab fa-instagram-square fa-2x px-2"></i>
+                </a>
+            </div>
+            <div class="twitter">
+                <a href="https://twitter.com/wasi_lab" target="_blank">
+                    <i class="fab fa-twitter-square fa-2x"></i>
+                </a>
+            </div>
+            <div class="linkedin">
+                <a href="https://www.linkedin.com/company/wasilab" target="_blank">
+                    <i class="fab fa-linkedin fa-2x px-2"></i>
+                </a>
+            </div>
+            <div class="tumblr">
+                <a href="https://wasilab.tumblr.com" target="_blank">
+                    <i class="fab fa-tumblr-square fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- body link start here  -->
+    <section id="bodyLink">
+        <div class="link py-sm-4 ">
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#StatCounter" class="px-sm-4 px-2">About</a>
+                </li>
+                <li>
+                    <a href="#ourWork">Service</a>
+                </li>
+                <li>
+                    <a href="#SlidebarNav" class="px-sm-4 px-2">Explore</a>
+                </li>
+                <li>
+                    <a href="#crd">DotLab</a>
+                </li>
+            </ul>
+        </div> 
+    </section>
+<!-- hero section end here  -->
+<!-- block section start  -->
+
+    {% block withhero %} {% endblock %}
+    {% block blog %}{% endblock %}
+
+<!-- block section end  -->
+{% endblock %}

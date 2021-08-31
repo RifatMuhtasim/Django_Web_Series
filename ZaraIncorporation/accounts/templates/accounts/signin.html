@@ -1,0 +1,23 @@
+{% extends 'headerfooter.html' %}
+{% block log%}
+<div class="pt-5 container d-flex justify-content-center pb-4">
+        <div class="bg-secondary m-3 p-5 rounded" style="width:50%" >
+                <form action="" method="POST" style="width: 90%;">
+                        {% csrf_token %}
+                        <input type="text" name="username" placeholder="Email or Username" class="p-1 container-fluid">
+                        <input type="password" name="password" placeholder="Password" class="p-1 container-fluid mt-3">
+                        <div>
+                                {% for message in messages%}
+                                        <p class="text-black">{{message}}</p>
+                                {% endfor %}
+                        </div>
+                        <button type='submit' class="btn btn-info mt-3">Submit</button>
+                        <div>
+                                <a class="text-white" href="{% url 'PasswordReset' %}">
+                                        <h6 class="pt-2">Forget Password?</h6>
+                                </a>
+                        </div>
+                </form>
+        </div>
+</div>
+{% endblock %}

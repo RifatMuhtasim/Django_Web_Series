@@ -1,0 +1,134 @@
+
+#SlidebarNav{
+    z-index: 400;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    width: 100%;
+    .bkimg{
+        img{
+            position: relative;
+            width: 100%;
+            object-fit: cover;
+            height: 440px;
+        }
+    }
+    .toggle{
+        margin-left: auto;
+        // margin-right:80px;
+        top:0%;
+        position: absolute;
+        z-index: 500;
+        margin: 50px;
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+
+        .cont{
+            color: white;
+            background-color: rgba(10, 15, 24, 0.522) ;
+
+            .clk{
+                padding: 30px;
+                height: 360px;
+            }
+        }
+
+        .lnk{
+            width: 93%;
+            margin-left: 50px;
+            // margin-right: -10%;
+            height: 360px;
+            background-color: rgba(240, 255, 255, 0.501);
+
+            li{
+                .active{
+                    color: azure;
+                    background-color: rgba(0, 49, 135, 0.7) ;
+                }
+                ag{
+                    color: rgba(10, 15, 24, 0.823);
+                    padding-left: 20px;
+                    border-bottom: rgb(131, 165, 230) 1px solid ;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px){
+    #SlidebarNav{
+        .toggle{
+            margin: 5px;
+            padding-top: 40px;
+            .cont{
+                .clk{
+                    padding: 15px;
+                    h2{
+                        font-size: 25px;
+                    }
+                    .extra{
+                        display: none;
+                    }
+                }
+            }
+            .lnk{
+                margin-left: 15px;
+                margin-right: -40px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    #SlidebarNav{
+        .toggle{
+            .lnk{
+                width: 100%;
+                margin: 0px -15px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 567px){
+    #SlidebarNav{
+        .bkimg{
+            img{
+                position: relative;
+                width: 100%;
+                object-fit: cover;
+                height: 600px;
+            }
+        }
+        .toggle{
+            margin: 0px;
+            padding-top: 40px;
+            .cont{
+                position:absolute;
+                margin-left: -15px;
+                width: 100%;
+                top: 180px;
+                .clk{
+                    padding: 15px;
+                    .extra{
+                        display: none;
+                    }
+                }
+            }
+            .lnk{
+                top: -30px;
+                z-index: 700;
+                position: absolute;
+                margin-top: 20px;
+                height: auto;
+                margin-left: -15px;
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{% extends 'withhero.html' %}
+{% block withhero %}
+<div class="container py-4">
+        <h1 class="text-center">User Information</h1>
+        <div class="row bg-secondary bg-gradient">
+                <div class="col-12 col-sm-12 col-md-6 p-5">
+                       <div>
+                               <img width="100%" src="{{user.profile.image.url}}" alt="">
+                       </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 p-5">
+                        <div>
+                                <h3>Profile: {{user.first_name}} {{user.last_name}}</h3>
+                                <h5>User Name: {{user.username}}</h5>
+                                <h5>Email: {{user.email}}</h5>
+                                <h4>
+                                        <a href="{% url 'UpdateProfile' %}" class="text-white">Update Profile ?</a>
+                                </h4>
+                        </div>
+                </div>
+        </div>
+</div>
+{% endblock %}
