@@ -1,0 +1,18 @@
+{% extends "primary.html" %}
+{% block primary %}
+<div class="p-5">
+    <center>
+        {% if ContactId %}
+            <h2>{{ContactId}}</h2>
+        {% else %}
+            <h2>Hello Rifat</h2>
+        {% endif %}
+        
+        {% if reject %}
+            <h2>{{reject}}</h2>
+        {% else %}
+            <h2>Hello Muhtasim</h2>
+        {% endif %}
+    </center>
+</div>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+{% block home %}
+<div>
+    <!-- Hero section -->
+    <section id="hero" class=" tm-font-big tm-parallaxy">
+      
+      <div class="text-center tm-hero-text-container">
+        <div class="tm-hero-text-container-inner">
+            
+        </div>        
+      </div>
+
+      <div class="tm-next tm-intro-next">
+        
+        <a href="https://www.pray4refugees.org" target="_blank" class="text-center tm-down-arrow-link">
+          <button class="btn btn-info tm-next hero-btn-x">
+            Visit Website
+          </button>
+        </a>
+      </div>      
+    </section>
+
+    <div class="container tm-section-pad-top">
+        {% block HomePost %}
+        {% endblock %}
+    </div>
+
+    <section id="introduction" class="tm-section-pad-top">
+      <div id="aboutx">
+        <div>
+          <h2 class="tm-text-primary tm-section-title mb-4 workx text-info">Our Work</h2>
+        </div>
+        <div class="row tm-section-pad-top container d-flex justify-content-center pb-5">
+          
+          <div class="col-lg-4">
+            <i class="fas fa-4x fa-hand-holding-heart text-center tm-icon text-info"></i>
+            <h4 class="text-center tm-text-primary mb-4 text-info">Protection</h4>
+            <p class="text-justify">
+              We seek to uphold the basic human rights of uprooted or stateless
+               people in their countries of asylum or habitual residence, ensuring
+                that refugees will not be returned involuntarily to a country where 
+                they could face persecution.
+            </p>
+          </div>
+        
+        <div class="col-lg-4 mt-5 mt-lg-0">
+          <i class="fas fa-4x fa-home text-center tm-icon text-info"></i>
+          <h4 class="text-center tm-text-primary mb-4 text-info">Shelter</h4>
+          <p class="text-justify">
+            We provides materials such as plastic sheeting and matting
+             that can be used to make a simple shelter for displaced Refugees.
+              On cold nights or
+              hot days, our help can be the difference
+               between life and death.
+          </p>
+        </div>
+        <div class="col-lg-4 mt-5 mt-lg-0">
+          <i class="fas fa-4x fa-first-aid text-center tm-icon text-info"></i>
+          <h4 class="text-center tm-text-primary mb-4 text-info">Health</h4>
+          <p class="text-justify">
+            Wherever possible, we aim to help refugees access health services through 
+            existing national health systems. We advocate for refugee healthcare inclusion
+             directly with governments, NGOs, local partners and communities.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="work" class="tm-section-pad-top-x mb-2">
+      <div class="container tm-container-gallery">
+        <div class="row">
+          <div class="text-center col-12">
+              <h2 class="tm-text-primary tm-section-title mb-4 text-info">What is a Refugee?</h2>
+              <p class="mx-auto tm-work-description">
+                Refugees are people who have fled war, violence,
+                 conflict or persecution and have crossed an 
+                 international border to find safety in another 
+                 country. They often have had to flee with little more 
+                 than the clothes on their back, leaving behind homes,
+                  possessions, jobs and loved ones. 
+              </p>
+            </div>
+          </div>            
+        </div>
+      </section>
+</div>
+{% endblock %}

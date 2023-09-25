@@ -1,0 +1,24 @@
+{% extends "primary.html" %}
+{% load static %}
+{% block primary %}
+<div>
+    <section id="hero" class=" tm-parallax pt-4">
+        <div class=" tm-hero-text-container">
+            <div class="WasiGroup my-1 ">
+                <div class="WasiGroupTxt">
+                     <img class="profile-img" src="{{user.profile.ProfileImage.url}}" alt="">
+                </div>
+                <div class="p4rTxt">
+                    <p class="p4rH" >{{user.first_name}} {{user.last_name}}</p>
+                    <div class="p4rPara"> 
+                        <h6>User Name: {{user.username}}</h6>
+                        <h6>Email: {{user.email}}</h6>
+                        <h6>Edit Your Profile ? <a href="{% url 'UpdateProfile' %}">Click Here</a> </h6>
+                    </div>
+                </div>
+            </div>
+                   
+        </div>
+    </section>
+</div>
+{% endblock%}

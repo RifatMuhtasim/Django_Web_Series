@@ -1,0 +1,90 @@
+{% extends "primary.html" %}
+{% load static%}
+{% block base %}
+<div>
+      <div>
+        {% block home%}
+        {% endblock %}
+      </div>
+
+      <div class="blockx container">
+        {% block story %}
+        {% endblock  %}
+      </div>
+
+      <section id="workx" class="tm-section-pad-top  container tm-container-gallery pb-5 refu">
+        <div class="row">
+            <div class="col-12">
+                <div class="mx-auto tm-gallery-container">
+                    <div class="grid tm-gallery">
+                      <a href="/story/refugee/Rohingya/" >
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="{% static 'img/rohingya.jpg' %}" alt="Image" class="img-fluid gimg">
+                          <figcaption>
+                            <h2><i><span>Rohingya</span> Refugee</i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a href="/story/refugee/Syrian/">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="{% static 'img/syrian.jpg' %}" alt="Image" class="img-fluid gimg">
+                          <figcaption>
+                            <h2><i><span>Syrian</span> Refugee</i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a href="/story/refugee/Palestinian/">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="{% static 'img/palestinian.jpg' %}" alt="Image" class="img-fluid gimg">
+                          <figcaption>
+                            <h2><i><span>Palestine</span> Refugees</i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a href="/story/refugee/Yemeni/">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="{% static 'img/yemeni.png' %}" alt="Image" class="img-fluid gimg">
+                          <figcaption>
+                            <h2><i><span>Yemeni</span> Refugee</i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a href="/story/refugee/Sudanese/">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="{% static 'img/sudanese.jpg' %}" alt="Image" class="img-fluid gimg">
+                          <figcaption>
+                            <h2><i><span>Sudanese</span> Refugee</i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a href="/story/refugee/Refugees/">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="{% static 'img/wasi.jfif' %}" alt="Image" class="img-fluid gimg">
+                          <figcaption>
+                            <h2><i><span> Refugee</span> Story</i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a class="HoneyNone" href="https://wasi.pray4refugees.org">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="{% static 'img/wasifoundation.jpg' %}" alt="Image" class="img-fluid gimg">
+                          <figcaption>
+                            <h2><i>About<span> Wasi</span> </i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a class="HoneyNone" href="https://pray4refugees.org/wasi-group">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="{% static 'img/wasilab.jpg' %}" alt="Image" class="img-fluid gimg">
+                          <figcaption>
+                            <h2><i> <span> Wasi</span> Group</i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                    </div>
+                </div>                
+            </div>        
+          </div>
+    </section>
+</div>
+{% endblock %}

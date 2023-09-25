@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block story %}
+<div>
+      <div>
+        <div>
+          <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-12 mainbar pr-2">
+                {% block StoryPost %}
+                {% endblock %}
+            </div>
+            <div class="p-3 col-lg-3 col-md-3 col-sm-12  sliderbar">
+                <div>
+                  <h5 class="pl-3">About Wasi</h5>
+                  <ul class="pt-2">
+                      <li><a href="https://www.pray4refugees.org/wasi-group" target="_blank">Wasi Group</a></li><br>
+                      <li><a href="https://wasi.pray4refugees.org">Wasi Foundation</a></li><br>
+                      <li><a href="https://wasilab.pray4refugees.org">Wasi Intelligence</a></li><br>
+                      <li><a href="https://wasilab.pray4refugees.org">WasiLab</a></li><br>
+                      <li><a href="#">Wasi Exchange</a></li><br>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="pl-3">About Pray 4 Refugees</h5>
+                  <ul class="pt-2">
+                      <li><a href="#">What we do</a></li><br>
+                      <li><a href="#">Who we are</a></li><br>
+                      <li><a href="#">Join us</a></li><br>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="pl-3">Refugees</h5>
+                  <ul class="pt-2">
+                      <li><a href="/story/refugee/Palestinian/">Rohingya</a></li><br>
+                      <li><a href="/story/refugee/Syrian/">Syrian</a></li><br>
+                      <li><a href="/story/refugee/Yemeni/">Yemeni</a></li><br>
+                      <li><a href="/story/refugee/Palestinian/">Palestinian</a></li><br>
+                      <li><a href="/story/refugee/Sudanese/">Sudanese</a></li><br>
+                  </ul>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock %}

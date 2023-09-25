@@ -1,0 +1,57 @@
+{% extends "basestory.html" %}
+{% block StoryPost %}
+<div id="sto">
+    <h1 class="pl-3 text-info">{{view.kwargs.username}} Blog</h1>
+
+    <div>
+        {% for StartPost in StartPosts %}
+          <section id="storyx" class="tm-section-pad-top-y ">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <img src="{{StartPost.Image.url}}" alt="Image" class="img-fluid tm-intro-img hb-img" />
+                  </div>
+                  <div class="col-lg-6 p-5">
+                    <div id="blog-text" class="tm-intro-text-container">
+                      <a href="{% url 'user-detail-post' StartPost.id %}"><h2 class="tm-text-primary mb-1 tm-section-title pr-1 text-info">{{StartPost.Title}}</h2></a>
+                        <div class="topx d-flex justify-content-start">
+                          <p class="mb-1 tm-intro-text pr-2"> {{StartPost.StartPostTime|date:"F d, Y   "}} </p>
+                        </div>
+                        
+                        <div id='read-more' class="tm-next mt-5 ">
+                          <a href="{% url 'user-detail-post' StartPost.id %}" class="tm-intro-text tm-btn-primary mt-5">Read More</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+        {% endfor %}
+      </div>
+
+      <div id="paginated" class="d-flex justify-content-around pb-5">
+        {% if is_paginated %}
+          <div>
+            {% if page_obj.has_previous %}
+              <a id="prenex" class="" href="?page={{page_obj.previous_page_number}}">← Previous</a>
+            {% endif %}
+          </div>
+          <div>
+            {% for num in page_obj.paginator.page_range %}
+              {% if page_obj.number == num %}
+                <a class="btn btn-info " href="?page={{num}}">{{num}}</a>
+              {% elif num > page_obj.number|add:'-3'  and  num < page_obj.number|add:'3' %}
+                <a class="btn btn-outline-info " href="?page={{num}}">{{num}}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div>
+            {% if page_obj.has_next %}
+              <a id="prenex" class="" href="?page={{page_obj.next_page_number}}">Next →</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+</div>
+{% endblock %}

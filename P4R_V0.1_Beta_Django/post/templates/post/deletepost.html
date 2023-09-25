@@ -1,0 +1,23 @@
+{% extends 'primary.html' %}
+{% block primary %}
+<div>
+    <section id="hero" class=" tm-parallax">
+      
+        <div class=" tm-hero-text-container">
+              <div id="frm">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <h3 class="head">Delete Post</h3>
+                    <h5 class="head">Are You Want to delete this? {{object.StartPostTitle}} </h5>
+                    <div class="d-flex justify-content-center align-item-center">
+                        <button class="btn btn-secondary mr-2" type="submit">Yes, Delete</button>
+                        <a class="btn btn-secondary ml-2" href="{% url 'user-detail-post' object.id %}">Cancel</a>
+                    </div>
+                </form>
+              </div>
+               
+        </div>
+    </section>
+
+</div>
+{% endblock %}
