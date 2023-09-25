@@ -1,0 +1,294 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- hero section Start  -->
+    <section class="hero">
+        <div class="heroimg" ></div>
+        <div class="HeroImgOver"></div>
+        <div id="search">
+            <div class="SearchSectionx rounded-pill">
+                <form action="{% url 'DomainSearchResultPage' %}" method="POST" id="captcha">
+                    {% csrf_token %}
+                    <div style="width: 600px;" class="input-group p-5">
+                            <div style="width: 70%;" class="border-0">
+                                    <input name="name" value="{{dnsname}}" type="text" class="form-control " aria-label="Text input with segmented dropdown button">
+                            </div>
+                            <select style="width: 20% ;" name="tld" class="custom-select" id="inputGroupSelect06">
+                                    <option selected value=".com">.com</option>
+                                    <option value=".org">.org</option>
+                                    <option value=".net">.net</option>
+                                    <option value=".biz">.biz</option>
+                                    <option value=".xyz">.xyz</option>
+                            </select>
+                            <div style="width: 10%;" class="input-group-append">
+                                    <input type="hidden" id="recaptcha" name="g-recaptcha-response"> 
+                                    <button class="btn btn-dark" type="submit">Search</button>
+                            </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="heroTxt container">
+            <p class="heroSmTxt">We plan, we create, we execute</p>
+            <p class="heroLgTxt">Make a impressive AI website with us.</p>
+        </div>
+        <div class="heroIcon">
+            <div class="facebook">
+                <a href="https://www.facebook.com/wasilab.ltd" target="_blank">
+                    <i class="fab fa-facebook-square fa-2x"></i>
+                </a>
+            </div>
+            <div class="instagram">
+                <a href="https://www.instagram.com/wasi_lab" target="_blank">
+                    <i class="fab fa-instagram-square fa-2x px-2"></i>
+                </a>
+            </div>
+            <div class="twitter">
+                <a href="https://twitter.com/wasi_lab" target="_blank">
+                    <i class="fab fa-twitter-square fa-2x"></i>
+                </a>
+            </div>
+            <div class="linkedin">
+                <a href="https://www.linkedin.com/company/wasilab" target="_blank">
+                    <i class="fab fa-linkedin fa-2x px-2"></i>
+                </a>
+            </div>
+            <div class="tumblr">
+                <a href="https://wasilab.tumblr.com" target="_blank">
+                    <i class="fab fa-tumblr-square fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- body link start here  -->
+    <section id="bodyLink">
+        <div class="link py-sm-4 ">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a class="px-sm-4 px-2" href="{% url 'DomainName' %}">DNS</a>
+                </li>
+                <li>
+                    <a href="#ourWork">Service</a>
+                </li>
+                <li>
+                    <a href="{% url 'Whois' %}" class="px-sm-4 px-2">Whois</a>
+                </li>
+                <li>
+                    <a href="#">DotLab</a>
+                </li>
+            </ul>
+        </div> 
+    </section>
+    <!-- ourWork start  -->
+    <section id="ourWork">
+        <div class="text container">
+            <p>
+                <pre>O U R  O P E R A T I O N</pre>
+            </p>
+            <h1>We plan, we create, we execute</h1>
+        </div>
+        <div class="WorkSectionView container">
+            <div class="row">
+                <div class="col-12 col-sm-4">
+                    <div class="section">
+                        <b>Web Design</b>
+                        <p>We develop impressive website by using Artificial Intelligence & Machine Learning</p>
+                        <i class="fas fa-laptop-code fa-5x"></i>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div class="section">
+                        <b>AI Solutions</b>
+                        <p> Our AI solutions use computer vision to accelerate intelligent automation with Website Design</p>
+                        <i class="fas fa-server fa-5x"></i>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div class="section">
+                        <b>Data Science</b>
+                        <p>Levf ur da lavarage out ta analytics expertsie to boost your Website & Business growth. </p>
+                        <i class="fas fa-coins fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- slide bar Navigation Toggle -->    
+    <section id="SlidebarNav">
+        <div class="bkimg">
+            <img src="{% static 'img/gimg.jpg' %}" alt="">
+        </div>
+        <div class="containerx">
+        <div class="toggle gxz container row mx-0">
+            <div class="col-12 col-sm-8">
+                <div class="tab-content cont ml-lg-5 ml-md-4 md-sm-2">
+                    <div class="tab-pane" id="ArtificialIntelligence">
+                        <div class="clk">
+                            <h2>Artificial Intelligence</h2>
+                            <p>
+                                Artificial intelligence refers to the simulation
+                                of human intelligence in machines that are programmed
+                                to think like humans and mimic their actions. We applied 
+                                to any Website & machine that exhibits traits
+                                associated with a human mind such as learning and 
+                                problem-solving.
+                            </p>
+                            <p class="extra">
+                                Using AI on your own website can:
+                                1. Lower costs, as you’ll be spending less time on various aspects of website management.
+                                2. Improve customer experience, since AI can be used to analyze data and deliver a more streamlined experience to your visitors.
+                                3. Save resources, as AI can perform many tasks that non-developers cannot.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tab-pane active" id="WebDevelopment">
+                        <div class="clk">
+                            <h2>Web Development</h2>
+                            <p>
+                                In the present-day highly competitive scenario where each business 
+                                service provider is trying to reach out to the target market, website
+                                design and development service are of the primary and highest 
+                                importance.
+                            </p>
+                            <p class="extra">We professionaly made website that is preferably designed and developed by Our 
+                                designers can be of immense benefits, serving various objectives
+                                like establishing brand identity, generating leads, and web 
+                                design services.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="DataScience">
+                        <div class="clk">
+                            <h2>Data Science</h2>
+                            <p>
+                                Big Data can reveal details about consumer behavior, indicate trends and
+                                provide other decision-making insights. But combing through it is 
+                                no easy task. That’s where data science comes in. 
+                            </p><br>
+                            <p class="extra">
+                                The tech term for this phenomenon is Big Data. And while it can reveal details
+                                 about consumer behavior, indicate trends and provide other decision-making insights,
+                                  combing through it to find these things is no easy task.
+                                That’s why we provide data science.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="CloudService">
+                        <div class="clk">
+                            <h2>Cloud Service</h2>
+                            <p>
+                                Cloud services are fully managed by cloud computing vendors and
+                                 service providers. They’re made available to customers from the
+                                  providers' servers, so there's no need for a company to host
+                                   the applications on its own on-premises servers.
+                            </p>
+                            <p class="extra">
+                                As the availability of cloud services continues to expand, so will 
+                                their applications in the corporate world. Whether a company chooses
+                                 to extend existing on-premises software deployments or move 100% to
+                                the cloud, these services will continue to simplify how
+                                organizations deliver mission-critical apps and data to the
+                                workforce
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4 mx-sm-0">
+                <div class="lnk">
+                    <ul class="nav navbar-nav nav-pills">
+                        <li class="nav-item">
+                            <ag href="#ArtificialIntelligence" class="nav-link" data-toggle="pill">Artificial Intelligence</ag>
+                        </li>
+                        <li class="nav-item">
+                            <ag href="#WebDevelopment" class="nav-link active" data-toggle="pill">Web Development</ag>
+                        </li>
+                        <li class="nav-item">
+                            <ag href="#DataScience" class="nav-link" data-toggle="pill">Data Science</ag>
+                        </li>
+                        <li class="nav-item">
+                            <ag href="#CloudService" class="nav-link" data-toggle="pill">Cloud Service</ag>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div> 
+    </section> 
+    <!-- in focus section start  -->
+
+    {% block IndexBlog %}{% endblock %}
+
+    <!-- Stat Counter Section Start  -->
+    <section id="StatCounter">
+        <div class="container">
+            <div class="about">
+                <h4>WE ARE PROFESSIONAL WEB DEVELOPMENT COMPANY</h4>
+                <div class="border"></div>
+                <p>Welcome to WasiLab! We are excited to see you on our profile. WasiLab is a leading
+                    Data Science, Cloud Service, Artificial Intelligence and Website development company! – expert in
+                    development, customization, and integration of complex enterprise-level 
+                    solutions, business intelligence analytics, advanced web and mobile solutions.
+                    With over 2 years of experience, we have worked for clients that include 
+                    individuals, startups, and organizations.
+                </p>
+            </div>
+            <div class="counter-up">
+                <div class="row content">
+                    <div class="col-6 col-sm-6 col-lg-3">
+                        <div class="box odd"> 
+                            <div><h1 class="counter">1770</h1></div>
+                            <div class="text">WORKING <div>HOUR</div> </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-lg-3">
+                        <div class="box even"> 
+                            <div><h1 class="counter">35</h1></div>
+                            <div class="text">SUCCESSFUL <div>PROJECT</div></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-lg-3">
+                        <div class="box odd"> 
+                            <div><h1 class="counter">12</h1></div>
+                            <div class="text">BUSINESS <div>PARTNERS</div></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-lg-3">
+                        <div class="box even">
+                            <div><h1 class="counter">247</h1></div>
+                            <div class="text">CLIENT <div> SERVICES</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Email form & Map section start  -->
+    <section id="eMap">
+        <div class="container">
+            <div class="row">
+                <div id="eform" class="col-12 col-sm-12 col-md-6">
+                    <form action="https://formspree.io/f/myylnddd" method="POST">
+                        <div class="form-group">
+                            <input id="name" class="form-control" name="name" type="text" placeholder="Your Name">
+                            <input id="email" class="form-control my-3" name="email" type="email" placeholder="Email Address">
+                            <textarea class="form-control" placeholder="Message" name="message" id="text" cols="30" rows="10"></textarea>
+                            <div id='errormessage' class="text-white pt-1"></div>
+                            <button onclick="checkEmail(event)" class="btn btn-secondary mt-2" type="submit">Send Message</button>    
+                        </div>
+                    </form>
+                </div>
+                <div id="Map" class="col-12 col-sm-12 col-md-6">
+                    <div>
+                        <p>
+                            <iframe id="#MapFrame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51490.95700733067!2d91.88265646046655!3d24.90852040396317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDU0JzUwLjUiTiA5McKwNTYnMjMuOSJF!5e1!3m2!1sen!2sbd!4v1627962437347!5m2!1sen!2sbd" width="100%" height="362" style="border:0;" allowfullscreen="" loading="lazy"></iframe> 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

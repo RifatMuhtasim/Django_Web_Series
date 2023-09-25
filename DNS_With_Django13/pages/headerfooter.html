@@ -1,0 +1,231 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'bhead.html' %}
+<body>
+    <!-- header Section Start -->
+    <header id="header">
+        <nav class="container Navbar">
+            <div class="NavbarContainer">
+                <a class="NavbarLogo" href="/"><h2>WasiLab</h2></a>
+                <div id="NavbarToggle">
+                    <spanx class="bar"></spanx>
+                    <spanx class="bar"></spanx>
+                    <spanx class="bar"></spanx>
+                    <spanx class="bar"></spanx>
+                </div>
+                <div class="overlay"></div>
+                <div class="NavbarMenu">
+                <ul class="NavbarMenuz">
+                    <li class="NavbarItems">
+                        <a href="{% url 'blog' %}" class="NavbarLinks link1 ">Blog</a>
+                    </li>
+                    <li class="NavbarItems">
+                        <a class="px-3 NavbarLinks link1" href="{% url 'DomainName' %}">DNS</a>
+                    </li>
+                    <li class="NavbarItems">
+                        <a style="padding-right:13px;" href="{% url 'Whois' %}" class="NavbarLinks link1">Whois</a>
+                    </li>
+                    <li class="NavbarItems ex">
+                        <div class="DropDown">
+                            <div class="NavbarLinks">Wasi ⇊</div>
+                            <div class="DropDownContent p-sm-3">
+                                <a class="NavbarLinks" href="#">Wasi Tab</a>
+                                <a class="NavbarLinks" href="#">Wasi Group</a>
+                                <a class="NavbarLinks" href="#">Wasi Foundation</a>
+                                <a class="NavbarLinks" href="#">Wasi Intelligence</a>
+                                <a class="NavbarLinks" href="#">Wasi Energy</a>
+                                <a class="NavbarLinks" href="#">Wasi Exchange</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="NavbarItems">
+                        <div class="heroIcon">
+                            <div class="facebook">
+                                <a href="https://www.facebook.com/wasilab.ltd" target="_blank">
+                                    <i class="fab fa-facebook-square fa-1x"></i>
+                                </a>
+                            </div>
+                            <div class="instagram">
+                                <a href="https://www.instagram.com/wasi_lab" target="_blank">
+                                    <i class="fab fa-instagram-square fa-1x px-3"></i>
+                                </a>
+                            </div>
+                            <div class="twitter">
+                                <a href="https://twitter.com/wasi_lab" target="_blank">
+                                    <i class="fab fa-twitter-square fa-1x"></i>
+                                </a>
+                            </div>
+                            <div class="linkedin">
+                                <a href="https://www.linkedin.com/company/wasilab" target="_blank">
+                                    <i class="fab fa-linkedin fa-1x px-3"></i>
+                                </a>
+                            </div>
+                            <div class="tumblr">
+                                <a href="https://wasilab.tumblr.com" target="_blank">
+                                    <i class="fab fa-tumblr-square fa-1x"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- header section end  -->
+
+    <!-- block section start  -->
+    {% block content %}{% endblock %}
+    {% block blog%}{% endblock %}
+    {% block log%}{% endblock %}
+    {% block IndexBlogBody%}{% endblock %}
+
+    <!-- block section end  -->
+    <!-- footer section Start  -->
+    <footer id="footer" class="pt-5">
+        <div class="container">
+            <div id="ft" class="row">
+                <div class="ftabout col-12 col-sm-4 ">
+                     <h3>About Us</h3>
+                     <div>
+                        <i class="fab fa-mixcloud fa-4x"></i>
+                        <p>WasiLab  is an innovation hub specializing in Web Designing, 
+                            Cloud Service, Artificial Intelligence, Data Science and more.</p>
+                     </div>
+                     <div class="heroIcon">
+                        <div class="facebook">
+                            <a href="https://www.facebook.com/wasilab.ltd" target="_blank">
+                                <i class="fab fa-facebook-square fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="instagram">
+                            <a href="https://www.instagram.com/wasi_lab" target="_blank">
+                                <i class="fab fa-instagram-square fa-2x px-2"></i>
+                            </a>
+                        </div>
+                        <div class="twitter">
+                            <a href="https://twitter.com/wasi_lab" target="_blank">
+                                <i class="fab fa-twitter-square fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="linkedin">
+                            <a href="https://www.linkedin.com/company/wasilab" target="_blank">
+                                <i class="fab fa-linkedin fa-2x px-2"></i>
+                            </a>
+                        </div>
+                        <div class="tumblr">
+                            <a href="https://wasilab.tumblr.com" target="_blank">
+                                <i class="fab fa-tumblr-square fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ftservice col-12 col-sm-3 col-md-2 ">
+                    <h3 class="pb-2 pb-sm-4">Service</h3>
+                    <div class="serviceLink">
+                        <ul>
+                            <li>
+                                <a href="#"> Web Design</a>
+                            </li>
+                            <li class="py-2">
+                                <a href="#"> Cloud Service</a>
+                            </li>
+                            <li>
+                                <a href="#"> Artificial Intelligence</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="#"> Data Science</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ftservice2 col-6 col-sm-2">
+                    <div class="ft2">
+                        <h3 class="pb-4">Explore</h3>
+                        <div class="serviceLink">
+                            <ul>
+                                <li>
+                                    <a href="{% url 'paypal' %}">Paypal</a>
+                                </li>
+                                <li class="py-2">
+                                    <a href="#"> WasiTab</a>
+                                </li>
+                                <li>
+                                    <a href="#"> Wasi Group</a>
+                                </li>
+                                <li class="py-2">
+                                    <a href="#"> Wasi Foundation</a>
+                                </li>
+                                <li>
+                                    <a href="#"> Wasi Inc</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="joinus col-6 col-sm-4 ">
+                    <div class="cu">
+                        <h3 class="">Contact Us</h3>
+                        <div class="serviceLink">
+                            <ul>
+                                <li>
+                                    <a href="mailto:wasilab.ltd@gmail.com">
+                                        <i class="far fa-envelope fa-3x"></i>
+                                        <div class="px-3 ftr">
+                                            <h3>Email Us</h3>
+                                            <p>wasilab.ltd</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="tel:+8801991843526">
+                                        <i class="fas fa-headset fa-3x"></i>
+                                        <div class="px-3 ftr">
+                                            <h3>Call Us</h3>
+                                            <p>+8801991943526</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fas fa-map-marker-alt fa-3x"></i>
+                                        <div class="px-4 ftr">
+                                            <h3>Visit Us</h3>
+                                            <p>Eastern Plaza Sylhet</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ct" class="cp">
+            <div class="container">
+                <p>Copyright &copy; 2021 WasiLab | Powered by <a href="https://pray4refugees.org/wasi-group" target="_blank">WasiGroup</a></p>
+            </div>
+            <div class='footer-link3 container'>
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li ><a href="{% url 'profile' %}">{{user.first_name}}</a></li>
+                    <li class="px-1"><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'signin' %}">Sign In</a></li>
+                    <li class="px-3"><a href="{% url 'register' %}">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section end  -->
+{% for message in messages %}
+    <script>
+            swal('{{message}}')
+    </script>
+{% endfor %}
+
+{% include 'bjavascript.html' %}
+</body>
+</html>
