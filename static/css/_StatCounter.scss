@@ -1,0 +1,111 @@
+
+#StatCounter{
+    margin-top: 50px;
+    margin-bottom: 40px;
+
+    .about{
+        justify-content: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 73%;
+        h4{
+            text-align: center;
+            color: $vipr;
+        }
+        .border{
+            margin-top: 15px;
+            margin-bottom: 35px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 6px;
+            background-color: $vipd;
+            width: 100px;
+        }
+        p{
+            text-align: center;
+        }
+    }
+    .content{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+        margin-right: auto;
+        margin-left: auto;
+        width: 85%;
+    }
+    .box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
+
+        
+        h1{
+            font-size: 55px;
+            color: $vipd;
+            width: 100%;
+        }
+        
+        .text{
+            font-size: 18px;
+            padding-left: 10px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 567px){
+    #StatCounter{
+        margin-top: 10px;
+        margin-bottom: -30px;
+        .about{
+            margin-bottom: -20px;
+            width: 100%;
+
+            p{
+                text-align: justify;
+            }
+        }
+        .content{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .box{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin: 0 ;
+            h1{
+                font-size: 30px;
+            }
+            .text{
+                font-size: 16px;
+            }
+        }
+        .even{
+            margin-left: 20px;
+        }
+        .odd{
+            margin-left: -20px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    #StatCounter{
+        .about{
+            width: 95%;
+        }
+    }
+}
+
+@media screen and (max-width: 992px){
+    #StatCounter{
+        .about{
+            width: 95%;
+        }
+    }
+}

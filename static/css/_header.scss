@@ -1,0 +1,179 @@
+
+#header{
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+
+    .NavbarContainer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 45px;
+
+        .NavbarLogo{
+            height: 100%;
+            color: #031e43;
+            text-decoration: none;
+            font-size: 20px;
+            z-index: 950;
+            &:hover{
+                color: #042755a8;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+        .NavbarMenuz{
+            margin-top: 10px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        .NavbarLinks{
+            text-decoration: none;
+            color: $vipc;
+            font-size: 18px;
+            &:hover{
+                color: #334b6d;
+                transition: all 0.3s ease-in-out;
+            }
+        }  
+        .DropDown{
+            cursor: pointer;
+            .DropDownContent{
+                border-radius: 4px;
+                right: 10px;
+                display: none;
+                position: absolute;
+                background-color: rgb(213, 223, 223);
+                min-width: 120px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 700;
+
+                a{
+                    display: block;
+                    text-align: left;
+                    color: $vipc;
+                    &:hover{
+                        background-color: rgb(216, 216, 216);
+                    }
+                }
+            }
+        } 
+        .DropDown:hover .DropDownContent{
+            display: block;
+        }
+    }
+}
+
+#header.scroll{
+    background-color: rgb(255, 255, 255);
+    border-bottom: rgb(211, 211, 211) 1px solid;
+}
+
+
+@media screen and (max-width: 576px){
+    #header{
+        background-color: azure;
+        .NavbarContainer{
+            align-items: center;
+
+            #NavbarToggle{
+                position: absolute;
+                z-index: 900;
+                top: 8%;
+                right: 5%;
+                transform: translate(5%, 30%);
+                color: $vipc;
+
+                .bar{
+                    width: 30px;
+                    height: 3px;
+                    margin: 0px auto 4px auto;
+                    display: block;
+                    background-color: $vipc;
+                    cursor: pointer;
+                }
+            }
+            .NavbarMenu{
+                display: grid;
+                grid-template-columns: auto;
+                margin: 0;
+                right: -1500px;
+                position: absolute;
+                z-index: 800;
+                opacity: 1;
+                transition: all 0.7s ease-in-out;
+
+                .NavbarMenuz{
+                    display: block;
+                }
+                .NavbarItems{
+                    padding-top: 20px;
+                    padding-left: 30px;
+                    font-size: 24px;
+                    
+                    .NavbarLinks{
+                        color: rgba(255, 255, 255, 0.967);
+                    }
+                    .DropDown{
+                        .DropDownContent{
+                            background-color: transparent;
+                            box-shadow: none;
+                            left: 10%;
+                            padding-top: 20px;
+                            a{
+                                padding: 10px 0px;
+                            }
+                            &:hover{
+                                background-color: none;
+                            }
+                        }
+                    }
+                }
+            }
+            .overlay{
+                display: grid;
+                grid-template-columns: auto;
+                margin: 0;
+                right: -1500px;
+                position: absolute;
+                z-index: 700;
+                opacity: 1;
+                transition: all 0.5s ease-in-out;
+            }
+            .overlay.active{
+                background-color: rgba(0, 0, 0, 0.24);
+                top: 100%;
+                right: 0%;
+                opacity: 1;
+                z-index: 700;
+                width: 100%;
+                height: 100vh;
+                transition: all 0.5s ease;
+            } 
+            .NavbarMenu.active{
+                background-color: $vipc;
+                top: 100%;
+                right: 0%;
+                opacity: 1;
+                z-index: 900;
+                width: 85%;
+                height: 100vh;
+                transition: all 0.7s ease-in-out;
+                transition-delay: 0.2s;
+            } 
+            #NavbarToggle.is-active .bar:nth-child(2){
+                opacity: 0;
+            }
+            #NavbarToggle.is-active .bar:nth-child(1){
+                transform: translateY(8px) rotate(45deg);
+            }
+            #NavbarToggle.is-active .bar:nth-child(3){
+                transform: translateY(-8px) rotate(-45deg);
+            } 
+        }
+    }
+}
+
+

@@ -1,0 +1,21 @@
+#wsearch{
+        position: relative;
+        z-index: 700;
+        // left: 28%;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .SearchSection{
+            background-color: #032863;
+        }
+        .TypeSearch:focus{
+            outline-width: 0;
+        }
+        button{
+            font-size: 20px;
+            a{
+                text-decoration: none;
+            }
+        }
+}

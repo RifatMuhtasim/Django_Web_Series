@@ -1,0 +1,20 @@
+
+
+#eMap{
+    padding: 55px 0px 0px 0px;
+    background-color: $vipr;
+    
+    #eform{
+        textarea{
+            resize: none;
+        }
+        #errormessage{
+            color: azure;
+        }
+    }
+    #Map{
+        iframe{
+            border-radius: 4px;
+        }
+    }
+}

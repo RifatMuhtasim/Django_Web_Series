@@ -1,0 +1,168 @@
+
+#footer{
+    position: relative;
+    background-color: rgb(20, 30, 48);
+    color: azure;
+    #ft{
+        padding-top: 0px;
+        padding-bottom: 0px;
+        font-size: 14px;
+        .ftabout{
+            h3{
+                font-size: 18px;
+                padding-bottom: 17px;
+            }
+            p{
+                width: 85%;
+                padding-top: 10px;
+            }
+            .heroIcon{
+                display: flex;
+                padding-top: 0px;
+                i{
+                    color: azure;
+                    &:hover{
+                        color: rgb(186, 186, 186);
+                    }
+                }
+            }
+        }
+        .ftservice{
+            h3{
+                font-size: 18px;
+            }
+            a{
+                text-decoration: none;
+                color: azure;
+                &:hover{
+                    color: rgb(169, 169, 169);
+                }
+            }
+        }
+        .ftservice2{
+            .ft2{
+                padding-left: 50px;
+            }
+            h3{
+                font-size: 18px;
+            }
+            a{
+                text-decoration: none;
+                color: azure;
+                &:hover{
+                    color: rgb(169, 169, 169);
+                }
+            }
+        }
+        .joinus{
+            .cu{
+                padding-left: 70px;
+                .ftr{
+                    margin-top: 17px;
+                }
+            }
+            h3{
+                font-size: 18px;
+            }
+            li{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+                color: azure;
+                display: flex;
+                align-items: center;
+                &:hover{
+                    color: rgb(169, 169, 169);
+                }
+                p{
+                    font-size: 12px;
+                }
+            }
+            
+        }
+    }
+}
+
+
+#ct{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    height: 30px;
+    background-color: black;
+    color: azure;
+    a{
+        color: rgb(171, 240, 240);
+        text-decoration: none;
+        &:hover{
+            color: rgb(255, 255, 255);
+        }
+    }
+    .footer-link3{
+        ul{
+            display: flex;
+            justify-content: space-around;
+            li{
+                list-style: none;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px){
+    #footer{
+        #ft{
+            .ftservice{
+                li{
+                    list-style: none;
+                }
+            }
+            .ftservice2{
+                    display: none;
+            }
+            .joinus{
+                .cu{
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 567px){
+    #footer{
+        #ft{
+            .ftabout{
+                position:absolute;
+                z-index: 700;
+                top: 150px;
+                background-color: $vipr;
+                padding-bottom: 30px;
+                padding-top: 10px;
+                h3{
+                    padding-bottom: 12px;
+                }
+            }
+            .ftservice{
+                top: -20px;
+                z-index: 600;
+                position: absolute;
+                padding-top: 20px;
+                background-color: $vipr;
+            }
+            .ftservice2{
+                display: none;
+            }
+            .joinus{
+                display: none;
+            }
+        }
+    }
+
+    #ct{
+        display: none;
+    }
+}

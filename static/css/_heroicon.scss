@@ -1,0 +1,42 @@
+
+
+#header{
+    .heroIcon{
+        position: absolute;
+        z-index: 700;
+        right: 0;
+        right: 0%;
+        top: 89%;
+        transform: translate(-72%, -15%);
+        display: flex;
+        justify-content: center;
+    
+        i{
+            color:#aeaeae;
+            transition: all 0.3s ease-in-out;
+            &:hover{
+                color:#606060;
+            }
+        }
+    }
+};
+
+
+
+
+@media screen and (max-width: 567px){
+    #header{
+        .ex{
+            display: none;
+        }
+    }
+}
+
+
+@media screen and (min-width: 568px){
+    #header{
+        .heroIcon{
+            display: none;
+        }
+    }
+}
