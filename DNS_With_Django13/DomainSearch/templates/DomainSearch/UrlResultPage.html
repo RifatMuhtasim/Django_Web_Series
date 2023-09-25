@@ -1,0 +1,75 @@
+
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="p-5 container">
+        <div class="pt-3">
+                {% if DomainSearch %}
+                <center>
+                        <form action="{% url 'DomainSearchResultPage' %}" method="POST" id="captcha">
+                                {% csrf_token %}
+                                <div style="width: 600px;" class="input-group p-5">
+                                        <div style="width: 70%;" class="border-0">
+                                                <input name="name" value="{{name}}" type="text" class="form-control " aria-label="Text input with segmented dropdown button">
+                                        </div>
+                                        <select style="width: 20% ;" name="tld" class="custom-select" id="inputGroupSelect06">
+                                                <option style="display: none;" value="{{tld}}">{{tld}}</option>
+                                                <option value=".com">.com</option>
+                                                <option value=".org">.org</option>
+                                                <option value=".net">.net</option>
+                                                <option value=".biz">.biz</option>
+                                                <option value=".xyz">.xyz</option>
+                                        </select>
+                                        <div style="width: 10%;" class="input-group-append">
+                                                <input type="hidden" id="recaptcha" name="g-recaptcha-response"> 
+                                                <button class="btn btn-outline-secondary" type="submit">Search</button>
+                                        </div>
+                                </div>
+                        </form>
+                </center>
+                <div class="py-3 container" style="width: 800px;">
+                        <div style="display: none;"><% import socket %></div>
+                        <table class="table">
+                                <thead class="thead">
+                                        <tr>
+                                                <td>No</td>
+                                                <td>Chose Your Domain Name</td>
+                                                <td>Price</td>
+                                                <td>Buy</td>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                                {% for x,y in avis %}
+                                                <tr >
+                                                {% if  y is False  %}
+                                                        <td >{{ forloop.counter }}</td>
+                                                        <td class="text-secondary"><input name="dnsname" type="text" value="{{x}}" style=" pointer-events: none; border: none; outline: none;"></td>
+                                                        <td class="text-secondary"></td>
+                                                        <td><button class="btn btn-secondary" type="#">Unavailable</button></td>
+                                                {% else %}
+                                                <form action="{% url 'UploadDataView' %}" method="POST">
+                                                {% csrf_token %}
+                                                        <td scope="row">{{ forloop.counter }}</td>
+                                                        <td><input name="dnsname" type="text" value="{{x}}" style=" pointer-events: none; border: none; outline: none;"></td>
+                                                        <td>{{price}}</td>
+                                                        <td><button class="btn btn-danger" type="submit">BUY</button></td>
+                                                {% endif %}
+                                                </form>
+                                                </tr>
+                                                {% endfor %}
+                                </tbody>
+                        </table>
+                </div>
+                {% elif DomainNameAlreadyRegistered %}
+                <center>
+                        <h3>Domain name is not valid</h3>
+                        <h4 class="text-muted">{{DomainNameAlreadyRegistered }}  </h4>
+                </center>
+                {% else%}
+                <center>
+                        <h2>Please put a Valid domain name</h2>
+                        <h5>Invalid TLD </h5>
+                </center>
+                {% endif %}
+        </div>
+</div>
+{% endblock %}

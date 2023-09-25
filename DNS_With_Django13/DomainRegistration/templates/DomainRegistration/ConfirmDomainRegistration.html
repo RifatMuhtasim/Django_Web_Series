@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="py-5 container">
+        <div class="bg-primary mt-4">
+                <center class="p-5">
+                        <form action="{% url 'DomainApiData' %}" method="POST">
+                                {% csrf_token %}
+                                <h4 class="text-white">We Collected all of your data that you provided <br> Confirm this : {{DnsName}}</h4>
+                                <div style="display: none;">
+                                        <input name="dnsname" type="text" value="{{dnsname}}">
+                                </div>
+                                <button class="btn btn-secondary px-3 mt-2" type="submit">Confirm</button>
+                        </form>
+                </center>
+        </div>
+</div>
+{% endblock %}

@@ -1,0 +1,154 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="py-5 container">
+        <div class="mt-3 bg-primary rounded">
+                <h2 class="p-2 text-white">{{oview.DnsName}}</h2>
+        </div>
+        <div class="row">
+                <div class="col-3 col-lg-3 border-right">
+                        <div class="pt-1">
+                                <table class="table table-hover table-bordered">
+                                        <thead class="bg-primary">
+                                                <tr>
+                                                        <th class="text-white">Domain Service</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody class="bg-light bg-gradient">
+                                                <tr>
+                                                        <td><a href="{% url 'DomainName' %}">My Domains</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <form action="{% url 'DomainNameserver' %}" method="POST">
+                                                                        {% csrf_token %}
+                                                                        <div style="display: none;"><input name="DnsName" type="text" value="{{oview.DnsName}}"></div>
+                                                                        <button class="text-primary btn" type="submit">Nameserver</button>
+                                                                </form>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <a href="{% url 're_privacy_protection' args %}">Privacy Protection</a>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <a href="{% url 'DnsPrivateNameserver' args %}">Private Child Nameserver</a>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <a href="{% url 'domain_forward' args %}">Domain Forward Service</a>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <a href="{% url 'domain_name_contact_information' args %}">Contact Information</a>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <form action="{% url 'DnsAutoRenew' %}" method="POST" >
+                                                                        {% csrf_token %}
+                                                                        <div style="display: none;"><input name="DnsName" type="text" value="{{oview.DnsName}}"></div>
+                                                                        <button class="text-primary btn" type="submit">Renew</button>
+                                                                </form>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <form action="{% url 'DnsAddson' %}" method="POST">
+                                                                        {% csrf_token %}
+                                                                        <div style="display: none;">
+                                                                                <input name="DnsName" type="text" value="{{oview.DnsName}}">
+                                                                        </div>
+                                                                        <button class="text-primary btn" type="submit">Addons</button>
+                                                                </form>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <a href="{% url 'DnsRecord' args %}">DNS Record Manage</a>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="{% url 'domain_theft_protectionx' args %}">Domain Theft Protection</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="{% url 'domain_secret_key' args %}">Domain Secret Key EPP</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="{% url 'TransferView' %}">Transfer Domain</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="{% url 'delete_domain_name' args %}">Delete Domain Name</a></td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                        </div>
+                </div>
+                <div class="col-9 col-lg-9">
+                        <h2 class="border-bottom pb-2 text-muted">Managing :  {{oview.DnsName}}</h2>
+                        <div>
+                                <h4 class="text-muted">Overview</h4>
+                                <div class="pt-2 row">
+                                        <div class="col-6 col-lg-6">
+                                                <div>
+                                                        <h5>Domain:</h5>
+                                                        <p>{{oview.DnsName}}</p>
+                                                </div>
+                                                <div>
+                                                        <h5>Registration Date:</h5>
+                                                        <p>{{oview.Time|date:"d/m/y"}}</p>
+                                                </div>
+                                                <div>
+                                                        <h5>Year for Purchese:</h5>
+                                                        <p>{{oview.DomainYear}}</p>
+                                                </div>
+                                                <div>
+                                                        <h5>SSL Status: </h5>
+                                                        <p>{{oview.DomainSsl}}</p>
+                                                </div>
+                                                <div>
+                                                        <h5>Nameserver1:</h5>
+                                                        <p>{{oview.NameServer1}}</p>
+                                                </div>
+                                                <div>
+                                                        <h5>Nameserver2:</h5>
+                                                        <p>{{oview.NameServer2}}</p>
+                                                </div>
+                                        </div>
+                                        <div class="col-6 col-lg-6">
+                                                <div>
+                                                        <div>
+                                                                <h5>Name:</h5>
+                                                                <p>{{oview.FirstName}} {{oview.LastName}}</p>
+                                                        </div>
+                                                        <div>
+                                                                <h5>Company Name:</h5>
+                                                                <p>{{oview.CompanyName}}</p>
+                                                        </div>
+                                                        <div>
+                                                                <h5>Email:</h5>
+                                                                <p>{{oview.Email}}</p>
+                                                        </div>
+                                                        <div>
+                                                                <h5>Phone Number:</h5>
+                                                                <p>{{oview.PhoneNumber}}</p>
+                                                        </div>
+                                                        <div>
+                                                                <h5>Location:</h5>
+                                                                <p>{{oview.City}}, {{oview.Country}}</p>
+                                                        </div>
+                                                        <div>
+                                                                <h5>Order ID:</h5>
+                                                                <p>{{oview.OrderId}}</p>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>
+{% endblock %}

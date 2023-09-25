@@ -1,0 +1,79 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="container py-5">
+        <div class="mt-3 bg-primary rounded">
+                <h2 class="p-2 text-white">My Domains</h2>
+        </div>
+        <div class="row">
+                <div class="col-3 col-lg-3 border-right">
+                        <div class="pt-1">
+                                <table class="table table-hover table-bordered">
+                                        <thead class="bg-primary">
+                                                <tr>
+                                                        <th class="text-white">Domain Service</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody class="bg-light bg-gradient">
+                                                <tr>
+                                                        <td><a href="#">Register a new Domain</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="#">Domain Nameserver</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="#">Renew Domain</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="{% url 'TransferView' %}">Transfer Domain</a></td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                        </div>
+                </div>
+                <div class="col-9 col-lg-9">
+                        <div class="pt-1">
+                                <table class="table table-hover table-bordered">
+                                        <thead class="thead-dark">
+                                                <tr>
+                                                        <th scope="col">ID</th>
+                                                        <th scope="col">Domain</th>
+                                                        <th scope="col">Reg Date</th>
+                                                        <th scope="col">Auto Renew</th>
+                                                        <th scope="col">Is Active ?</th>
+                                                        <th scope="col">Status</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                                {% for a,b,c,d in items %}
+                                                <tr>
+                                                        <th scope="row">{{forloop.counter}}</th>
+                                                        <td>
+                                                                <form action="{% url 'DnsArgs' %}" method="POST">
+                                                                        {% csrf_token %}
+                                                                        <div style="display: none;"><input name="DnsName" type="text" value="{{a}}"></div>
+                                                                        <input type="submit" class="link-primary btn btn-link" value="{{a}}">
+                                                                </form>
+                                                        </td>
+                                                        <td>{{b}}</td>
+                                                        <td>{{c}}</td>
+                                                        <td>{{d}}</td>
+                                                        <td>
+                                                                <form action="{% url 'DnsArgs' %}" method="POST">
+                                                                        {% csrf_token %}
+                                                                        <div style="display: none;"><input name="DnsName" type="text" value="{{a}}"></div>
+                                                                        <center>
+                                                                                <button class="btn" type="submit">
+                                                                                        <i class="fas fa-cogs"></i>
+                                                                                </button>
+                                                                        </center>
+                                                                </form>
+                                                        </td>
+                                                </tr>
+                                                {% endfor %}
+                                        </tbody>
+                                </table>
+                        </div>
+                </div>
+        </div>
+</div>
+{% endblock %}

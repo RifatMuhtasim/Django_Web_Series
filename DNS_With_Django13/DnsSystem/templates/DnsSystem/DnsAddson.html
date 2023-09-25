@@ -1,0 +1,107 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="py-5 container">
+        <div class="mt-3 bg-primary rounded">
+                <h2 class="p-2 text-white">{{obj.DnsName}}</h2>
+        </div>
+        <div class="row">
+                <div class="col-3 col-lg-3 border-right">
+                        <div class="pt-1">
+                                <table class="table table-hover table-bordered">
+                                        <thead class="bg-primary">
+                                                <tr>
+                                                        <th class="text-white">Domain Service</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody class="bg-light bg-gradient">
+                                                <tr>
+                                                        <td><a href="#">Domain Settings</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="{% url 'DomainName' %}">My Domains</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <form action="{% url 'DomainNameserver' %}" method="POST">
+                                                                        {% csrf_token %}
+                                                                        <div style="display: none;"><input name="DnsName" type="text" value="{{obj.DnsName}}"></div>
+                                                                        <button class="text-primary btn" type="submit">Nameserver</button>
+                                                                </form>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="#">Transfer Domain</a></td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                        </div>
+                </div>
+                <div class="col-9 col-lg-9">
+                        <h2 class="border-bottom pb-2 text-muted">Managing :  {{obj.DnsName}}</h2>
+                        <div>
+                                <h4 class="text-muted">Addson</h4>
+                                <p>The following addson are available for your domains !</p>
+                                <div>
+                                        <table class="table-borderless">
+                                                <tbody>
+                                                        <tr class="pt-3">
+                                                                <td class="pt-3">
+                                                                        <i class="fas fa-shield-alt fa-4x"></i>
+                                                                </td>
+                                                                <td id="IdProtection" class="pl-3 pt-3">
+                                                                        <form action="{% url 'DnsIdPro' %}" method="POST" enctype="multipart/form-data">
+                                                                                {% csrf_token %}
+                                                                                <span> <b> Id Protection : {{idpro.IdPro}}</b></span>
+                                                                                <span class="resultTextx"></span>
+                                                                                <div class="toggle d-flex justify-content-center {{idpro.IdPro}}">
+                                                                                        <label class="switch">
+                                                                                                <input {{idpro.IdPro}} type="checkbox">
+                                                                                                <span onclick="bchange()" class="slider round"></span>
+                                                                                        </label>
+                                                                                        <button type="submit" class="btn btn-success ml-3">Save</button>
+                                                                                </div>
+                                                                                <div style="display: none;">
+                                                                                        <input type="text" name="DnsName" value="{{obj.DnsName}}">
+                                                                                        <textarea name="IdPro" id="" cols="30" rows="10" class="resultText"></textarea>
+                                                                                </div>
+                                                                        </form>
+                                                                </td>
+                                                        </tr>
+                                                        <tr class="pt-3">
+                                                                <td class="pt-3">
+                                                                        <i class="fas fa-cloud fa-4x"></i>
+                                                                </td>
+                                                                <td class="pl-3 pt-3">
+                                                                        <h6>Dns Host Record</h6>
+                                                                        <div class="d-flex justify-content-center">
+                                                                                <form action="{% url 'DnsManagement' %}" method="POST">
+                                                                                        {% csrf_token %}
+                                                                                        <div style="display: none;"><input name="DnsName" type="text" value="{{obj.DnsName}}"></div>
+                                                                                        <button class="text-white btn btn-success" type="submit">Manage</button>
+                                                                                </form>
+                                                                        </div>
+                                                                </td>
+                                                        </tr>
+                                                        <tr class="pt-3">
+                                                                <td class="pt-3">
+                                                                        <i class="fas fa-envelope fa-4x"></i>
+                                                                </td>
+                                                                <td class="pl-3 pt-3">
+                                                                        <h6>Email Forwarding</h6>
+                                                                        <div class=" d-flex justify-content-center">
+                                                                                <form action="{% url 'DnsEmailForward' %}" method="POST">
+                                                                                        {% csrf_token %}
+                                                                                        <div style="display: none;"><input name="DnsName" type="text" value="{{obj.DnsName}}"></div>
+                                                                                        <button class="text-white btn btn-success" type="submit">Manage</button>
+                                                                                </form>
+                                                                        </div>
+                                                                </td>
+                                                        </tr>
+                                                </tbody>
+                                        </table>
+                                </div>
+                        </div>        
+                </div>
+        </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'headerfooter.html' %}
+{% block content  %}
+<div class="py-5">
+        <div class="pt-4">
+                <center>
+                        <h5>Congratulations . Now it's Your Domain Name {{dnsname}} </h5>
+                        <h5></h5>
+                        <div class="">
+                                <h4>
+                                        <a href="{% url 'DomainName' %}">Now go to domain List . .</a>
+                                </h4>
+                        </div>
+                </center>
+        </div>
+</div>
+{% endblock %}
