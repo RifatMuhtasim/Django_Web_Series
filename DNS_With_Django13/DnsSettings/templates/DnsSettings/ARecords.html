@@ -1,0 +1,121 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="py-5 container">
+        <div class="mt-3 bg-primary rounded">
+                <h2 class="p-2 text-white">{{obj.DnsName}}</h2>
+        </div>
+        <div class="row">
+                <div class="col-3 col-lg-3 border-right">
+                        <div class="pt-1">
+                                <table class="table table-hover table-bordered">
+                                        <thead class="bg-primary">
+                                                <tr>
+                                                        <th class="text-white">Domain Service</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody class="bg-light bg-gradient">
+                                                <tr>
+                                                        <td><a href="#">Domain Settings</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="{% url 'DomainName' %}">My Domains</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <form action="{% url 'DomainNameserver' %}" method="POST">
+                                                                {% csrf_token %}
+                                                                        <div style="display: none;">
+                                                                                <input name="DnsName" type="text" value="{{obj.DnsName}}">
+                                                                        </div>
+                                                                        <button class="text-primary btn" type="submit">
+                                                                                Nameserver
+                                                                        </button>
+                                                                </form>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="#">Transfer Domain</a></td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                        </div>
+                </div>
+                <div class="col-9 col-lg-9">
+                        <h2 class="border-bottom pb-2 text-muted">Managing :  {{obj.DnsName}}</h2>
+                        <div>
+                                <h4 class="text-muted">DNS Record Management</h4>
+                                <div>
+                                        <form action="{% url 'ARecords' DomainName %}" method="POST">
+                                        {% csrf_token %}
+                                        <table id="tableField" class="table table-borderless ">
+                                                <thead class="thead-dark">
+                                                        <tr>
+                                                                <th width="15%" scope="col">TTL Seconds</th>
+                                                                <th width="35%" scope="col">IP Address</th>
+                                                                <th width="55%" scope="col">Host Name</th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody id="candidate">
+                                                        <tr>
+                                                                <td>
+                                                                        <input value="14400" required class="form-control" type="number" name="TTL">
+                                                                </td>
+                                                                <td>
+                                                                        <input required id="F2" name="IPv4Value" class="container-fluid px-1 form-control" type="text" placeholder="">
+                                                                </td>
+                                                                <td class="d-flex justify-content-center">
+                                                                        <input id="F3" name="HostName" class="container-fluid px-1 form-control"  type="text" placeholder="">
+                                                                        <p class="pt-2">.{{obj.DnsName}}</p>
+                                                                </td>
+                                                        </tr>
+                                                </tbody>
+                                        </table>
+                                        <div style="display: none;"><input name="DnsName" type="text" value="{{obj.DnsName}}"></div>
+                                        <button class="btn btn-success ml-2 px-4" type="submit">Save</button>
+                                        </form>
+                                </div>
+                                <div id="dynamic-list" class="mt-4">
+                                        <table class="table table-hover table-borderless">
+                                                <thead class="thead-dark">
+                                                        <tr>
+                                                                <th width="20%" scope="col">TTL</th>
+                                                                <th width="30%" scope="col">IP Address</th>
+                                                                <th width="40%" scope="col">Host Name</th>
+                                                                <th width="10%" scope="col"></th>
+                                                                <th width="10%" scope="col"></th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                        {% for a, b, c, d in items_list %}
+                                                                <tr id="dynamicList">
+                                                                        <form action="{% url 'ModifyARecord' DomainName %}" method="POST">
+                                                                                <td><input value="{{c}}" required id="F2" name="NewTTL" class="container-fluid px-1 form-control" type="text" placeholder=""></td>
+                                                                                <td><input value="{{b}}" required id="F2" name="NewIPv4Value" class="container-fluid px-1 form-control" type="text" placeholder=""></td>
+                                                                                {% if a %}
+                                                                                        <td class="pt-3">{{a}}.{{DomainName}}</td>
+                                                                                {% else %}
+                                                                                        <td class="pt-3">{{DomainName}}</td>
+                                                                                {% endif %}
+                                                                                <td>
+                                                                                        {% csrf_token %}
+                                                                                        <div style="display: none;"><input name="DnsName" type="text" value="{{obj.DnsName}}"><input name="IPv4Value" type="text" value="{{b}}"><input name="HostName" type="text" value="{{a}}"></div>
+                                                                                        <button class="text-white btn btn-info" type="submit">Modify</button>      
+                                                                                </td>
+                                                                        </form>
+                                                                        <form action="{% url 'DeleteARecord' DomainName %}" method="POST">
+                                                                                <td>
+                                                                                        {% csrf_token %}
+                                                                                        <div style="display: none;"><input name="DnsName" type="text" value="{{obj.DnsName}}"><input name="IPv4Value" type="text" value="{{b}}"><input name="HostName" type="text" value="{{a}}"></div>
+                                                                                        <button class="text-white btn btn-danger" type="submit">Delete</button>
+                                                                                </td>
+                                                                        </form>
+                                                                </tr>
+                                                        {% endfor %}
+                                                </tbody>
+                                        </table>
+                                </div>
+                        </div>        
+                </div>
+        </div>
+</div>
+{% endblock %}

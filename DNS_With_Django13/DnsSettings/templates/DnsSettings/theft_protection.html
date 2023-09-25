@@ -1,0 +1,76 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="py-5 container">
+        <div class="mt-3 bg-primary rounded">
+                <h2 class="p-2 text-white">{{obj.DnsName}}</h2>
+        </div>
+        <div class="row">
+                <div class="col-3 col-lg-3 border-right">
+                        <div class="pt-1">
+                                <table class="table table-hover table-bordered">
+                                        <thead class="bg-primary">
+                                                <tr>
+                                                        <th class="text-white">Domain Service</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody class="bg-light bg-gradient">
+                                                <tr>
+                                                        <td><a href="#">Domain Settings</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="{% url 'DomainName' %}">My Domains</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <form action="{% url 'DomainNameserver' %}" method="POST">
+                                                                        {% csrf_token %}
+                                                                        <div style="display: none;">
+                                                                                <input name="DnsName" type="text" value="{{obj.DnsName}}">
+                                                                        </div>
+                                                                        <button class="text-primary btn" type="submit">
+                                                                                Nameserver
+                                                                        </button>
+                                                                </form>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="#">Transfer Domain</a></td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                        </div>
+                </div>
+                <div class="col-9 col-lg-9">
+                        <h2 class="border-bottom pb-2 text-muted">Managing :  {{obj.DnsName}}</h2>
+                        <div>
+                                <h4 class="text-muted">Domain Theft Protection</h4>
+                                <div>
+                                        <div id="IdProtection" class="pl-3 pt-3">
+                                                <form action="{% url 'domain_theft_protectionx' args %}" method="POST" enctype="multipart/form-data">
+                                                        {% csrf_token %}
+                                                        <div> <b> Theft Protection : </b></div>
+                                                        <textarea  name='result' class="resultText" style="display: none;">{{lock_result}}</textarea>
+                                                        <div class="toggle pt-2">
+                                                                <label class="switch">
+                                                                        <input {{click}} type="checkbox">
+                                                                        <span onclick="xchange()" class="slider round"></span>
+                                                                </label>
+                                                                <button type="submit" class="btn btn-success ml-3 mt-2">Save</button>
+                                                        </div>
+                                                        <div style="display: none;">
+                                                                <input type="text" name="DnsName" value="{{obj.DnsName}}">
+                                                                <textarea name="IdPro" id="" cols="30" rows="10" class="resultText"></textarea>
+                                                        </div>
+                                                </form>
+                                                <div class="pt-4">
+                                                    <p>Theft Protection secures your Domain from unauthorized transfers.
+                                                        <br><br>
+                                                        We recommend that you keep this enabled, except when transferring your Domain Name out.</p>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>        
+                </div>
+        </div>
+</div>
+{% endblock %}

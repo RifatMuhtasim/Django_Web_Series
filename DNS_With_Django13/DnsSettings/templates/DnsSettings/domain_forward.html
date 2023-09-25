@@ -1,0 +1,132 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="py-5 container">
+        <div class="mt-3 bg-primary rounded">
+                <h2 class="p-2 text-white">{{obj.DnsName}}</h2>
+        </div>
+        <div class="row">
+                <div class="col-3 col-lg-3 border-right">
+                        <div class="pt-1">
+                                <table class="table table-hover table-bordered">
+                                        <thead class="bg-primary">
+                                                <tr>
+                                                        <th class="text-white">Domain Service</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody class="bg-light bg-gradient">
+                                                <tr>
+                                                        <td><a href="#">Domain Settings</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="{% url 'DomainName' %}">My Domains</a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <form action="#" method="POST">
+                                                                {% csrf_token %}
+                                                                        <div style="display: none;">
+                                                                                <input name="DnsName" type="text" value="{{obj.DnsName}}">
+                                                                        </div>
+                                                                        <button class="text-primary btn" type="submit">
+                                                                                Nameserver
+                                                                        </button>
+                                                                </form>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="#">Transfer Domain</a></td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                        </div>
+                </div>
+                <div class="col-9 col-lg-9">
+                        <h2 class="border-bottom pb-2 text-muted">Managing :  {{obj.DnsName}}</h2>
+                        <div>
+                                <h4 class="text-muted">Domain Forward Service</h4>
+                                <div>
+                                        <form action="{% url 'add_domain_forward' DomainName %}" method="POST">
+                                        {% csrf_token %}
+                                        <table id="tableField" class="table table-borderless ">
+                                                <thead class="thead-dark">
+                                                        <tr>
+                                                                <th width="30%" scope="col">Sub Domain Prefix</th>
+                                                                <th width="55%" scope="col"><center>Destination Url</center></th>
+                                                                <th width="15%" scope="col"><center>URL Masking</center></th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody id="candidate">
+                                                        <tr>
+                                                                <td class="d-flex justify-content-center">
+                                                                    <input id="F3" name="sub_domain_prefix" class="container-fluid px-1 form-control"  type="text" placeholder="">
+                                                                    <p class="pt-2 pl-1">.{{obj.DnsName}}</p>
+                                                                </td>
+                                                                <td >
+                                                                    <div class="d-flex justify-content-center align-items-center">
+                                                                        <h4 class="pt-2 pr-1">=></h4>
+                                                                        <input required id="F2" name="forward_to" class="container-fluid px-1 form-control" type="text" placeholder="">
+                                                                    </div> 
+                                                                </td>
+                                                                <td>
+                                                                    <center>
+                                                                        <textarea  name='url_masking' class="resultText" style="display: none;">true</textarea>
+                                                                        <div class="toggle pt-2">
+                                                                            <label class="switch">
+                                                                                    <input {{click}} type="checkbox">
+                                                                                    <span onclick="achange()" class="slider round"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div style="display: none;">
+                                                                            <input type="text" name="DnsName" value="{{obj.DnsName}}">
+                                                                            <textarea name="IdPro" id="" cols="30" rows="10" class="resultText"></textarea>
+                                                                        </div>
+                                                                    </center>
+                                                                </td>
+                                                        </tr>
+                                                </tbody>
+                                        </table>
+                                        <div style="display: none;"><input name="DnsName" type="text" value="{{obj.DnsName}}"></div>
+                                        <button class="btn btn-success ml-2 px-4" type="submit">Save</button>
+                                        </form>
+                                </div>
+                                <div id="dynamic-list" class="mt-4">
+                                        <table class="table table-hover table-borderless">
+                                                <thead class="thead-dark">
+                                                        <tr>
+                                                                <th width="30%" scope="col">Sub Domain Prefix</th>
+                                                                <th width="40%" scope="col"><center>Destination Url</center></th>
+                                                                <th width="18%" scope="col"> <center>URL Masking</center></th>
+                                                                <th width="5%" scope="col"></th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                        {% for a,b,c in forward_list %}
+                                                                <tr id="dynamicList">
+                                                                                <td>
+                                                                                        <p>{{a}}</p>
+                                                                                </td>
+                                                                                <td>
+                                                                                        <center><p>{{b}}</p></center>
+                                                                                </td>
+                                                                                <td>
+                                                                                        <center>
+                                                                                                <p>{{c}}</p>
+                                                                                        </center>   
+                                                                                </td>
+                                                                        <form action="{% url 'disable_forward' DomainName %}" method="POST">
+                                                                                {% csrf_token %}
+                                                                                <td>
+                                                                                        <div style="display: none;"><input name="Name" type="text" value="{{a}}"><input name="DomainName" type="text" value="{{obj.DnsName}}"></div>
+                                                                                        <button class="text-white btn btn-danger" type="submit">Delete</button>
+                                                                                </td>
+                                                                        </form>
+                                                                </tr>
+                                                        {% endfor %}
+                                                </tbody>
+                                        </table>
+                                </div>
+                        </div>        
+                </div>
+        </div>
+</div>
+{% endblock %}
