@@ -1,0 +1,35 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="py-5 container">
+        <center>
+                <h4>Whois Search Result for : {{dnsname}}</h4>
+        </center>
+        {% if WhoisResult %}
+                <div class="p-4">
+                        <ul>
+                                <li>Domain Name:  {{WhoisResult.domain_name}}</li>
+                                <li>Register : {{WhoisResult.registered}}</li>
+                                <li>Server : {{WhoisResult.whois_server}}</li>
+                                <li>Created :  {{WhoisResult.date_created}}</li>
+                                <li>Expiration:  {{WhoisResult.date_expires}} </li>
+                                <li>Update:  {{WhoisResult.date_updated}} </li>
+                                <li>Email:   {{WhoisResult.emails}}</li>
+                        </ul>
+                </div>
+                <center>
+                        <div class="p-5  rounded bg-secondary">
+                                {{WhoisResult}}
+                        </div>
+                </center>
+        {% elif InvalidTld %}
+                <center>
+                        <h2 class="py-2">INVALID TLD</h2>
+                </center>
+        {% else %}
+        <div class="pt-3"> 
+                <b style="font-size: 30px;">OLA !!</b> <br>
+                <h4>You can Buy this {{dnsname}} Domain Name</h4>
+        </div>
+        {% endif %}
+</div>
+{% endblock %}

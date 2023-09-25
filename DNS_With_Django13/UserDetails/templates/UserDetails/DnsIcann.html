@@ -1,0 +1,21 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="py-5">
+        <div>
+                <center>
+                        <form action="{% url 'DnsCongratulations' %}" method="POST">
+                                {% csrf_token %}
+                                        <div>
+                                                <h3>Buy this Domain ? </h3>
+                                        </div>
+                                        <button class="btn btn-danger" type='submit'>Check Out</button>
+                                        <div style="display: none;">
+                                                {% if DnsName %}
+                                                <textarea name="DnsName" id="" cols="30" rows="10">{{DnsName}}</textarea>
+                                                {% endif %}
+                                        </div>
+                        </form>
+                </center>
+        </div>
+</div>
+{% endblock %}

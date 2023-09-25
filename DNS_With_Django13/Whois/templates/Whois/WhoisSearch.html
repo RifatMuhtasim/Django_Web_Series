@@ -1,0 +1,19 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="pt-5 container">
+        <div class=" pt-3 pb-5">
+                <center >
+                        <h1><b>W H O -'i'- S</b></h1>
+                        <div id="wsearch" class="py-5">
+                                <div class="SearchSection rounded-pill">
+                                    <form action="{% url 'dnsname' %}" method="POST">
+                                        {% csrf_token %}
+                                        <input name="DomainSearch" class="TypeSearch py-2 px-4 rounded-pill" type="text" placeholder="Domain Name or IP Address">
+                                        <button class="btn rounded-pill pr-4 text-white" type="submit">Search</button>
+                                    </form>
+                                </div>
+                        </div>
+                </center>
+        </div>
+</div>
+{% endblock %}

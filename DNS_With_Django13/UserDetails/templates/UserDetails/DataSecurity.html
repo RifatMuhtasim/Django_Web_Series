@@ -1,0 +1,122 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="pt-5 container">
+        <center>
+        <div>
+                <h2>: : : Data Saved on Database . . . </h2>
+                <div>
+                        <form action="{% url 'UploadDnsInformation' dnsname %}" method="POST">
+                                {% csrf_token %}
+                                <div>
+                                        <div class="p-3">
+                                                <div class="row">
+                                                        <p class="col-4">Domain Name Registration?</p>
+                                                        <div class="col-4">
+                                                                <label for="DomainYear">
+                                                                        <span>Domain Year</span>
+                                                                        <select name="DomainYear" id="DomainYear">
+                                                                                <option value="1">1 Year</option>
+                                                                                <option value="2">2 Year</option>
+                                                                                <option value="3">3 Year</option>
+                                                                                <option value="4">4 Year</option>
+                                                                                <option value="5">5 Year</option>
+                                                                        </select>
+                                                                </label>
+                                                        </div>
+                                                        <div class="col-4">
+                                                               <span class="pr-3"> auto renew?</span>
+                                                               <label for="">
+                                                                       <span>Yes </span>
+                                                                       <input type="radio" name="DomainAutoRenew" value="true">
+                                                               </label>
+                                                               <label for="">
+                                                                       <span>No </span>
+                                                                       <input type="radio" name="DomainAutoRenew" value="false" checked>
+                                                               </label>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="p-3">
+                                                <div class="row">
+                                                        <p class="col-4">Domain Privacy</p>
+                                                        <div class="col-4">
+                                                                <span class="pr-3">Secure ?</span>
+                                                                <label for="">
+                                                                        <span>Yes </span>
+                                                                        <input type="radio" name="status" value="true">
+                                                                </label>
+                                                                <label for="">
+                                                                        <span>No </span>
+                                                                        <input type="radio" name="status" value="false" checked>
+                                                                </label>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="p-3">
+                                                <div class="row">
+                                                        <p class="col-4">SSL/ TLS</p>
+                                                        <div class="col-4">
+                                                               <span class="pr-3"> Enable Ssl/ Tls</span>
+                                                               <label for="">
+                                                                       <span>Yes</span>
+                                                                       <input type="radio" name="DomainSsl" value="true">
+                                                               </label>
+                                                               <label for="">
+                                                                       <span>No </span>
+                                                                       <input type="radio" name="DomainSsl" value="false" checked>
+                                                               </label>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="p-3">
+                                                <div class="row">
+                                                        <p class="col-4">Premium Dns</p>
+                                                        <div class="col-4">
+                                                               <span class="pr-3"> Enable Premium Domain ?</span>
+                                                               <label for="">
+                                                                       <span>Yes </span>
+                                                                       <input type="radio" name="DomainPremium" value="true">
+                                                               </label>
+                                                               <label for="">
+                                                                       <span>No </span>
+                                                                       <input type="radio" name="DomainPremium" value="false" checked>
+                                                               </label>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="p-3">
+                                                <div class="row">
+                                                        <p class="col-4">Name Server 1</p>
+                                                        <div class="col-4">
+                                                                <input required type="text" name="NameServer1" id="" value="ns1.pray4refugees.org" class="pl-2">
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="p-3">
+                                                <div class="row">
+                                                        <p class="col-4">Name Server 2</p>
+                                                        <div class="col-4">
+                                                                <input required type="text" name="NameServer2" id="" value="ns2.pray4refugess.org" class="pl-2">
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div>
+                                        <button class="btn btn-danger mb-5 px-5" type="Submit">Confirm</button>
+                                </div>
+                                <div style="display: none;">
+                                        <div>
+                                                <textarea name="UserName" id="" cols="30" rows="10">{{user.username}}</textarea>
+                                                {% if DnsName %}
+                                                <textarea name="DnsName" id="" cols="30" rows="10">{{DnsName}}</textarea>
+                                                {% else%}
+                                                <p>suprr</p>
+                                                {% endif %}
+                                        </div>
+                                </div>
+                        </form>
+                </div>
+        </div>
+        </center>
+</div>
+{% endblock %}

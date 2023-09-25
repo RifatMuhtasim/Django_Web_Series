@@ -1,0 +1,85 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="pt-5 container">
+        <div>
+                <center>
+                        <h2>Hello World ? </h2>
+                        {% if DomainSearch %}
+                        <div>{{DomainSearch}}</div>
+                        {% else %}
+                        <div>Surpraise</div>
+                        {% endif %}
+                </center>
+        </div>
+        <div class="row py-4">
+                <div class="py-3 col-6 col-lg-6 pl-3">
+                        <form id="UserForm"   onsubmit="process(event)" action="{% url 'UploadData' dnsname %}" class="pl-5" method="POST">
+                                {% csrf_token %}
+                                <div class="input-group">
+                                <div>
+                                        <label for="">First Name</label><br>
+                                        <input value="{{obj.FirstName}}" required class="form-control " name="FirstName" type="text">
+                                </div>
+                                <div>
+                                        <label for="">Last Name</label><br>
+                                        <input value="{{obj.LastName}}" required class="form-control " name="LastName" type="text">
+                                </div>
+                                <div>
+                                        <label for="">Company Name</label><br>
+                                        <input value="{{obj.CompanyName}}" required class="form-control" name="CompanyName" type="text">
+                                </div>
+                                <div>
+                                        <label for="">Job Title</label><br>
+                                        <input value="{{obj.JobTitle}}" required class="form-control" name="JobTitle" type="text">
+                                </div>
+                                <div>
+                                        <label for="">Address 1</label><br>
+                                        <input value="{{obj.Address1}}" required class="form-control" name="Address1" type="text">
+                                </div>
+                                <div>
+                                        <label for="">Address 2</label><br>
+                                        <input value="{{obj.Address2}}" required class="form-control" name="Address2" type="text">
+                                </div>
+                                <div>
+                                        <label for="">City</label><br>
+                                        <input value="{{obj.City}}" required class="form-control" name="City" type="text">
+                                </div>
+                                <div>
+                                        <label for="">ZIP</label><br>
+                                        <input value="{{obj.ZipCode}}" required class="form-control" name="ZipCode" type="text">
+                                </div>
+                                <div>
+                                        <label for="">State</label><br>
+                                        <input value="{{obj.State}}" required class="form-control" name="State" type="text">
+                                </div>
+                                <div>
+                                        <label for="">Email</label><br>
+                                        <input value="{{obj.Email}}" required class="form-control" name="Email" type="email">
+                                </div>
+                                <div>
+                                        <label for="">Phone Number</label><br>
+                                        <input value="+{{obj.PhoneCode}}{{obj.PhoneNumber}}" style="width: 92%;" id="phone" type="tel" name="phone" class=" form-control"  required><br><br>
+                                </div><br>
+                                <div>
+                                        <div class="g-recaptcha" data-sitekey="6LcV9AkdAAAAAI0jdDOLUJLtrJgqs8MsUBWdYXdT"></div>
+                                </div><br>
+                                <!-- display none  -->
+                                <div style="display: none;">
+                                        <textarea name="UserName" id="" cols="30" rows="10">{{user.username}}</textarea>
+                                        <textarea name="DnsName" id="" cols="30" rows="10">{{DomainSearch}}</textarea>
+                                        <input type="text" name="CountryCode" id="countryCode" value="">
+                                        <input type="text" name="DialCode" id="dialCode" value="">
+                                        <input type="text" name="PhoneNumber" id="phoneNumber" value="">
+                                </div>
+                                </div>
+                                <button  type="submit" class="btn btn-danger px-3 mt-3">Submit</button>
+                        </form>
+                </div>
+                <div class="col-6 col-lg-6">
+                        <div class="mt-4">
+                                <img class="rounded" style="object-fit: cover; width: 100%; height: 1060px;" src="https://observatoire-fic.com/wp-content/uploads/2021/07/ARTICLE-CRYPTO-2.png" alt="">
+                        </div>
+                </div>
+        </div>
+</div>
+{% endblock %}

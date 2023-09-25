@@ -1,0 +1,26 @@
+{% extends 'headerfooter.html' %}
+{% block content  %}
+<div class="py-5">
+        <div class="pt-4">
+                <center>
+                        {% if DnsName %}
+                        <h5>Congratulations . Now it's Your Domain Name: {{DnsName}} </h5>
+                        {% else %}
+                        <h5>NULL</h5>
+                        {% endif %}
+                        <div>
+                                {% if CName %}
+                                <h6> Company Name ==> {{CName}} </h6>
+                                {% else %}
+                                <h6>NULL</h6>
+                                {% endif %}
+                        </div>
+                        <div class="">
+                                <h4>
+                                        <a href="{% url 'DomainName' %}">Now go to domain List . .</a>
+                                </h4>
+                        </div>
+                </center>
+        </div>
+</div>
+{% endblock %}
