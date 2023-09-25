@@ -1,0 +1,26 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="container py-5">
+    <center class="pt-5">
+        <form action="{% url 're_captcha' %}" method="POST"  style="width: 400px;">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <label for="password">Password</label>
+            <div class="inputBox form-group d-flex justify-content-center">
+              <input  name="password" type="password" class="form-control" id="password" placeholder="Password">
+              <div id="toggley" class="" onclick="show_hide()">
+                <i id="eye" class="far fa-1x fa-eye-slash"></i>
+              </div>
+            </div>
+            <div class="py-3">
+                <div class="g-recaptcha" data-sitekey="6LcV9AkdAAAAAI0jdDOLUJLtrJgqs8MsUBWdYXdT"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </center>
+</div>
+{% endblock  %}

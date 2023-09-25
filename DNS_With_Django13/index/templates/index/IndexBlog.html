@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block IndexBlog %}
+<div>
+        <section id="InFocus">
+                <div class="container">
+                        <div class="txt 4row">
+                                <span>
+                                        <h2 class="col-12 col-lg-12">In<span>_</span>Focus</h2>
+                                </span> 
+                        </div>
+                        <div id="crd">
+                                <div class="container">
+                                        <div class="row">
+                                        {% for blogx in IndexBlogs %}
+                                                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                                                        <a href="{% url 'IndexBlogBody' blogx.slug %}">
+                                                                <div id="cardContent" class="card">
+                                                                        <img src="{{blogx.image.url}}" alt="">
+                                                                        <div class="card-body">
+                                                                                <div class="card-text">{{blogx.title}}</div>
+                                                                        </div>
+                                                                </div>
+                                                        </a>
+                                                </div>
+                                        {% endfor %}
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </section>
+</div>
+{% endblock %}

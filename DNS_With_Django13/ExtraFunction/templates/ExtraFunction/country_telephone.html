@@ -1,0 +1,18 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="py-5 container">
+    <div class="pt-5">
+        <h5>Country Telephone No</h5>
+            <form  id="login" onsubmit="process(event)" class="form-group d-flex align-items-center">
+                <b class="pr-3">Enter your phone number:</b>
+                <input id="phone" type="tel" name="phone" class=" form-control"  >
+                <input type="submit" class="ml-3 btn btn-danger" value="Submit" />
+                <div class="alertx alert-infox" style="display: none;">
+                    <input type="text" name="CountryCode" id="countryCode" value="">
+                    <input type="number" name="DialCode" id="dialCode" value="">
+                    <input type="number" name="PhoneNumberx" id="phoneNumber" value="">
+                </div>
+            </form>
+    </div>
+</div>
+{% endblock %}
