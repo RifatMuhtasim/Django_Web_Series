@@ -1,0 +1,111 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="py-5 container">
+        <form action="{% url 'register' %}"  id="UserForm"   onsubmit="process(event)"   class="container" method="POST" style="width: 90%">
+        {% csrf_token %}
+        <div class="">
+                <div style="background-color: rgb(28, 36, 79);" class="row mt-5 " >
+                        <div class="col-12 col-sm-12 col-md-6 mt-5 pl-5 pt-5 ">
+                                <div class="input-group">
+                                        <div>
+                                                <label class="text-white" for="">Company Name</label><br>
+                                                <input required class="form-control" name="CompanyName" type="text">
+                                        </div>
+                                        <div>
+                                                <label class="text-white" for="">Job Title</label><br>
+                                                <input required class="form-control" name="JobTitle" type="text">
+                                        </div>
+                                        <div>
+                                                <label class="text-white" for="">Address 1</label><br>
+                                                <input required class="form-control" name="Address1" type="text">
+                                        </div>
+                                        <div>
+                                                <label class="text-white" for="">Address 2</label><br>
+                                                <input required class="form-control" name="Address2" type="text">
+                                        </div>
+                                        <div>
+                                                <label class="text-white"  for="">City</label><br>
+                                                <input required class="form-control" name="City" type="text">
+                                        </div>
+                                        <div>
+                                                <label class="text-white" for="">ZIP</label><br>
+                                                <input required class="form-control" name="ZipCode" type="text">
+                                        </div>
+                                        <div>
+                                                <label class="text-white" for="">State</label><br>
+                                                <input required class="form-control" name="State" type="text">
+                                        </div>
+                                        <div>
+                                                <label for="" class="text-white">Phone Number</label><br>
+                                                <input style="width: 92%;" id="phone" type="tel" name="phone" class=" form-control"  required>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class=" col-12 col-sm-12 col-md-6">
+                                        <div class="input-group pr-5 p-5 mr-5 mt-5">
+                                                <div>
+                                                        <label class="text-white" for="">First Name</label><br>
+                                                        <input required class="form-control " name="FirstName" type="text">
+                                                </div>
+                                                <div>
+                                                        <label class="text-white" for="">Last Name</label><br>
+                                                        <input required class="form-control " name="LastName" type="text">
+                                                </div>
+                                                <div>
+                                                        <label  class="text-white" for="">UserName</label><br>
+                                                        <input required class="form-control" name="UserName" type="text">
+                                                </div>
+                                                <div>
+                                                        <label  class="text-white" for="">Email</label><br>
+                                                        <input required class="form-control" name="Email" type="email">
+                                                </div>
+                                                <label  class="text-white" for="">Password</label>
+                                                <div style="width: 340px;" class="inputBox d-flex justify-content-center">
+                                                        <input  name="Password1" type="password" class=" form-control" id="password" placeholder="">
+                                                        <div id="toggley" class="bg-white" onclick="show_hide()">
+                                                                <i id="eye" class="far fa-1x fa-eye-slash"></i>
+                                                        </div>
+                                                </div>
+                                                <div style="width: 370px;">
+                                                        <p class="text-white">
+                                                                <br>
+                                                                Allowed Password length is 9 to 16 <br>
+                                                                It should contain at least: <br>
+                                                                - 1 lowercase character <br>
+                                                                - 1 uppercase character <br>
+                                                                - 1 number <br>
+                                                                - 1 special character. (Allowed special characters are: ~*!@$#%_+.?:,{}) <br>
+                                                        </p>
+                                                </div>
+                                                <div class="">
+                                                        <label for="">
+                                                                {% for message in messages %}
+                                                                        <li class="text-white">{{message}}</li>
+                                                                {% endfor %}
+                                                        </label>
+                                                </div><br>
+                                                <label  class="text-white" for="">Confirm Password</label>
+                                                <div style="width: 340px;" class="inputBox2 d-flex justify-content-center">
+                                                        <input  name="Password2" type="password" class=" form-control" id="password2" placeholder="">
+                                                        <div id="toggley2" class="bg-white" onclick="show_hide2()">
+                                                                <i id="eye2" class="far fa-1x fa-eye-slash"></i>
+                                                        </div>
+                                                </div><br>
+                                                <div ><br>
+                                                        <div class="g-recaptcha" data-sitekey="6LcV9AkdAAAAAI0jdDOLUJLtrJgqs8MsUBWdYXdT"></div>
+                                                </div>
+                                                <div style="display: none;">
+                                                        <input type="text" name="CountryCode" id="countryCode" value="">
+                                                        <input type="text" name="DialCode" id="dialCode" value="">
+                                                        <input type="text" name="PhoneNumber" id="phoneNumber" value="">
+                                                </div>
+                                                <div class="">
+                                                        <button type="submit" class="btn btn-danger mt-3 px-5">Submit</button>
+                                                </div>
+                                        </div>
+                        </div>
+                </div>
+        </div>
+        </form>
+</div>
+{% endblock %}

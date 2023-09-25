@@ -1,0 +1,31 @@
+{% extends 'headerfooter.html' %}
+{% block log%}
+<div class="pt-5 container d-flex justify-content-center pb-4">
+        <div class="bg-secondary m-3 p-5 rounded" style="width:50%" >
+                <form class="form-group" action="" method="POST" style="width: 90%;">
+                        {% csrf_token %}
+                        <input type="text" name="username" placeholder="Email or Username" class=" container-fluid form-control">
+                        <div class="inputBox d-flex justify-content-center mt-3">
+                                <input  name="password" type="password" class=" form-control" id="password" placeholder="Enter Password">
+                                <div id="toggley" class="bg-white" onclick="show_hide()">
+                                        <i id="eye" class="far fa-1x fa-eye-slash"></i>
+                                </div>
+                        </div>
+                        <div>
+                                {% for message in messages%}
+                                        <p class="text-black">{{message}}</p>
+                                {% endfor %}
+                        </div>
+                        <button type='submit' class="btn btn-info mt-3">Submit</button>
+                        <div>
+                                <a class="text-white" href="{% url 'register' %}">
+                                        <h6 class="pt-2">Don't have an account?</h6>
+                                </a>
+                                <a class="text-white" href="{% url 'PasswordReset' %}">
+                                        <h6 class="pt-2">Forget Password?</h6>
+                                </a>
+                        </div>
+                </form>
+        </div>
+</div>
+{% endblock %}
