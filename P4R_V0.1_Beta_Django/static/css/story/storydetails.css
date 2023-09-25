@@ -1,0 +1,25 @@
+#storydetail img {
+  width: 100%;
+  height: 550px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#write {
+  padding-left: 0px;
+  padding-top: 40px;
+}
+
+#workx {
+  padding-top: 0px;
+  margin-top: -40px;
+}
+
+.HomePost {
+  padding-bottom: 0px;
+}
+
+.HomePost .pd-left {
+  margin-left: -30px;
+}
+/*# sourceMappingURL=storydetails.css.map */

@@ -1,0 +1,63 @@
+#sto{
+    margin-bottom: 0px;
+}
+
+#storyx{
+    background-color: white;
+
+    img{
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    #blog-text{
+        padding-left: 7px;
+        padding-right: 14px;
+
+        .topx{
+            a{
+                color: rgb(12, 133, 189);
+            }
+        }
+    }
+
+    .topx{
+        margin-bottom: -15px;
+    }
+
+    .meta{
+        padding-top: 0px;
+    }
+
+    #read-more{
+        padding-top: 5px;
+    }
+
+    .vvv{
+        border-top: 2px solid rgb(170, 170, 170);
+        margin-top: 37px;
+        margin-bottom: -30px;
+    }
+
+}
+
+
+#paginated{
+    padding-top: 15px;
+    color: rgb(40, 116, 174);
+    #prenex{
+        font-size: 28px;
+        a{
+            margin: auto
+        }
+    }
+    .btni{
+        background-color: rgb(35, 104, 177);
+        color: white
+    }
+}
+
+#hero{
+    margin-bottom: 0px;
+}
