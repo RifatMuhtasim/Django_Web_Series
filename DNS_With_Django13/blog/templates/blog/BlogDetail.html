@@ -1,0 +1,42 @@
+
+{% extends 'headerfooter.html' %}
+{% load static %}
+{% block blog%}
+        <div id="blog" class='container py-4'>
+                <h1 class="text-center pb-5 pt-5 text-primary">Blog Details View</h1>
+                <div class='row py-3'>
+                        <div class= 'col-12 col-lg-12'>
+                                <a href="#">
+                                        <img src="{{object.image.url}}" alt="" width='100%' height='800px'>
+                                </a>
+                        </div>
+                        <div class="col-12 col-lg-12" >
+                                <div class="title">
+                                        <a href="#">
+                                                <h1 class="link-none pt-5">{{object.title}}</h1>
+                                        </a>
+                                        <span class="d-flex ">
+                                                <a href="#">
+                                                        <h6>{{object.author}}</h6>
+                                                </a> 
+                                                <h6 class="px-3">|</h6>
+                                                <h6>{{object.time|date:"F d, Y"}}</h6>
+                                         </span>
+                                </div>
+                                <div class="paragraph">
+                                        <p class="pt-3 text-justify">
+                                                {{object.body | safe}}
+                                        </p>
+                                </div>
+                                <div class="button">
+                                        <div class="btn btn-info">
+                                                <a href="{{object.url}}" class="text-white"> Previous</a>     
+                                        </div>
+                                        <div class="btn btn-info">
+                                                <a href="{{object.url}}" class="text-white"> Next</a>     
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+ {% endblock%}

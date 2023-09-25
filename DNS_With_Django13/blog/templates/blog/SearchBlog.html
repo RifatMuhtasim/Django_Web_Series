@@ -1,0 +1,23 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="p-5">
+        <center>
+                <h2>Search KEY:  {{searched}}</h2>
+                {% if searched %}
+                <div>
+                        <div>
+                                {% for title in SearchTitle%}
+                                <div>
+                                        <a href="{% url 'BlogDetail' title.slug %}">{{title}}</a><br>
+                                </div>
+                                {% endfor %}
+                        </div>
+                </div>
+                {% else %}
+                <div>
+                        <strong>Have a RelaX !!!</strong>
+                </div>
+                {% endif %}
+        </center>
+</div>
+{% endblock %}

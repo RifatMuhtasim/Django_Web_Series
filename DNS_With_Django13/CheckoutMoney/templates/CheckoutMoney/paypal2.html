@@ -1,0 +1,99 @@
+{% extends 'headerfooter.html' %}
+{% load static %}
+{% block content %}
+
+<div class="py-5 container">
+    <form id="paypalform" action="{% url 'paypal_auto_renew_confirm' %}" class="d-flex flex-column center" method="POST">
+        {% csrf_token %}
+        <div class="d-flex align-items-center">
+            <label class="pt-4">
+                <input type="radio" name="payment-option" value="paypal" checked>
+                <img width="45px" height="35px" src="{% static 'img/paypal.png' %}" alt="Pay with Paypal">
+            </label>
+        
+            <label class="pt-4 pl-4">
+                <input type="radio" name="payment-option" value="card">
+                <img width="200px" height="40px" src="{% static 'img/card.png' %}" alt="Accepting Visa, Mastercard, Discover and American Express">
+            </label><br>
+        </div>
+        <div style="display: none;">
+            <input id="trans" type="text" name="TransactionId">
+            <input id="DnsName" type="DnsName" name="DnsName" value="{{DnsName}}">
+            <input type="text" name="exp_time" value="{{exp_time}}">
+        </div>
+    
+        <div id="paypal-button-container" ></div>
+        <div id="card-button-container" class="hidden">
+            <input type="button" value="Pay With Card" class="btn btn-primary  mt-2">
+        </div>
+    </form>
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id={{PaypalClientId}}&currency=USD"></script>
+<script>
+    // Listen for changes to the radio fields
+    document.querySelectorAll('input[name=payment-option]').forEach(function(el) {
+        el.addEventListener('change', function(event) {
+
+            // If PayPal is selected, show the PayPal button
+            if (event.target.value === 'paypal') {
+                document.querySelector('#card-button-container').style.display = 'none';
+                document.querySelector('#paypal-button-container').style.display = 'inline-block';
+            }
+
+            // If Card is selected, show the standard continue button
+            if (event.target.value === 'card') {
+                document.querySelector('#card-button-container').style.display = 'inline-block';
+                document.querySelector('#paypal-button-container').style.display = 'none';
+            }
+        });
+    });
+
+    // Hide Non-PayPal button by default
+    document.querySelector('#card-button-container').style.display = 'none';
+
+    // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
+        style: {
+            layout: 'horizontal',
+            color: 'silver',
+            tagline: false,
+            height: 40,
+            width: 30,
+        },
+
+        // Set up the transaction
+        createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '{{Payment}}'
+                        }
+                    }]
+                });
+        },
+
+            // Finalize the transaction
+        onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    // Successful capture! For demo purposes:
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    var transaction = orderData.purchase_units[0].payments.captures[0];
+                    // alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+
+                    var transactionId = transaction.id
+                    document.getElementById('trans').setAttribute('value', transactionId)
+                    var paypalform = document.getElementById('paypalform')
+                    paypalform.submit()
+
+                    // Replace the above to show a success message within this page, e.g.
+                    // const element = document.getElementById('paypal-button-container');
+                    // element.innerHTML = '';
+                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+                });
+        }
+    }).render('#paypal-button-container');
+</script>
+
+{% endblock %}

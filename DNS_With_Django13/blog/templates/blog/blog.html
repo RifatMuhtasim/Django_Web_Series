@@ -1,0 +1,76 @@
+
+{% extends 'withhero.html' %}
+{% load static %}
+{% block blog%}
+        <div id="blog" class='container py-4'>
+
+                <div class="pb-3">
+                        <center>
+                                <form action="{% url 'SearchBlog' %}" method="POST" >
+                                        {% csrf_token %}
+                                        <input name="searched" class="rounded-pill p-2" type="text" placeholder="Search">
+                                        <button type="submit" class="btn btn-info rounded-pill p-2 border-3">Search</button>
+                                </form>
+                        </center>
+                </div>
+
+                <h1 class="text-center  text-primary">Join us. Know about WasiLab</h1>
+                {% for blog in blogs%}
+                <div class='row py-3'>
+                        <div class= 'col-sm-12 col-md-6'>
+                                <a href="{% url 'BlogDetail' blog.slug %}">
+                                        <img src="{{blog.image.url}}" alt="" width='100%' height='400px'>
+                                </a>
+                        </div>
+                        <div class="col-sm-12 col-md-6" >
+                                <div class="title">
+                                        <a href="{% url 'BlogDetail' blog.slug %}">
+                                                <h1 class="link-none">{{blog.title}}</h1>
+                                        </a>
+                                        <span class="d-flex ">
+                                                <a href="#">
+                                                        <h6>{{blog.author}}</h6>
+                                                </a> 
+                                                <h6 class="px-3">|</h6>
+                                                <h6>{{blog.time|date:"F d, Y"}}</h6>
+                                         </span>
+                                </div>
+                                <div class="paragraph">
+                                        <p class="pt-3 text-justify">
+                                                {{blog.meta}}
+                                        </p>
+                                </div>
+                                <div class="button">
+                                        <div class="btn btn-info">
+                                                <a href="{% url 'BlogDetail' blog.slug %}" class="text-white"> Read More</a>     
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                {% endfor %}
+                
+                {% if is_paginated %}
+                <div id="paginated" class="d-flex justify-center my-4">
+                        <div class="prev pr-5">
+                                {% if page_obj.has_previous %}
+                                        <a class="btn btn-info " href="?page= {{page_obj.previous_page_number}} "> <-- Previous </a>
+                                {% endif %}
+                        </div>
+                        <div>
+                                {% for num in page_obj.paginator.page_range %}
+                                        {% if page_obj.number == num %}
+                                                <a class="btn btn-info" href="?page= {{num}}">{{num}}</a>
+                                        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                                <a class="btn btn-outline-info" href="?page= {{num}}">{{num}}</a>
+                                        {% endif %}
+                                {% endfor %}
+                        </div>
+                        <div class="next pl-5">
+                                {% if page_obj.has_next %}
+                                        <a class="btn btn-info " href="?page= {{page_obj.next_page_number }} "> Next --> </a>
+                                {% endif %}
+                        </div>
+                </div>
+                {% endif %}
+        </div>
+ {% endblock%}

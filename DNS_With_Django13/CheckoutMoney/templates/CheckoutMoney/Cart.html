@@ -1,0 +1,54 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+<div class="container py-5">
+        <center class="pb-2">
+                <h3>Buy this Domain Name !!</h3>
+                <div >
+                        {% if DnsName %}
+                                <h5>{{DnsName}}</h5>
+                        {% endif %}
+                </div>
+        </center>
+        <div style="background-color: rgba(107, 107, 107, 0.809);" class="row rounded">
+                <div class="col-lg-6 p-5">
+                        <!-- <img style="width: 100%; height: 350px; object-fit: cover;" src="https://www.globalfocusmagazine.com/wp-content/uploads/2020/02/Engaging_with_technology-scaled.jpg" alt=""> -->
+                        <div> {% include 'CheckoutMoney/CartImg.html' %} </div>
+                </div>
+                <div class="col-lg-6 p-5 ">
+                        <div>
+                                <form id="payment-form" action="{% url 'charge' dnsname %}" method="POST">
+                                        {% csrf_token %}
+                                        <div>
+                                                <h2>{{DnsName}}  : $10</h2>
+                                                <div style="display: none;">
+                                                        <input type="text" name="DnsName" value="{{DnsName}}">
+                                                        <input type="text" name="amount" value="10">
+                                                        {% if user.is_authenticated %}
+                                                        <input type="text" name="username" value="{{user.username}}">
+                                                        {% endif %}
+                                                </div>
+                                        </div>
+                                        <div>
+                                                <label for="">Cardholder Name : </label><br>
+                                                <input required class="container-fluid" type="text" name="name">
+                                        </div>
+                                        <div>
+                                                <label for="">Email : </label><br>
+                                                <input required class="container-fluid" type="email" name="email">
+                                        </div>
+                                        <div>
+                                                <label for="">Address : </label><br>
+                                                <input class="container-fluid" type="text" name="address">
+                                        </div>
+                                        <div class="">
+                                                <label for="card-element">Credit or Debit Card: </label>
+                                                <div id="card-element"></div>
+                                                <div class="card-errors" role="alert"></div>
+                                        </div>
+                                        <button class="mt-3 btn btn-secondary" type="submit">Confirm</button>
+                                </form>
+                        </div>
+                </div>
+        </div>
+</div>
+{% endblock %}
