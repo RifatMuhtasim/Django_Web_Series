@@ -1,0 +1,32 @@
+{% extends "baseindex.html" %}
+{% load static%}
+{% block HomePost %}
+<div>
+  {% for HomePost in HomePosts %}
+    <section id="introduction" class="tm-section-pad-top-y HomePost">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <img src="{{HomePost.HomePostImage.url}}" alt="Image" class="img-fluid tm-intro-img hb-img" />
+            </div>
+            <div class="col-lg-6 ">
+              <div class="tm-intro-text-container">
+                  <h2 class="tm-text-primary mb-1 tm-section-title pr-1">
+                    <a href="{{HomePost.HomePostUrl}}"> {{HomePost.HomePostTitle|safe}} </a>
+                  </h2>
+                  <div class="d-flex justify-content-start">
+                    <p class="mb-1 tm-intro-text pr-2"> {{HomePost.HomePostTime|date:"F d, Y  | "}} </p>
+                    <a href="{% url 'storyauthor' HomePost.HomePostAuthor.username %}" class="text-info">{{HomePost.HomePostAuthor}}</a>
+                  </div>
+                  <p class="mb-4 tm-intro-text metadata pt-3 "> {{HomePost.HomePostMetadata|safe}} </p>
+                  <div class="tm-next pt-2">
+                    <a href="{{HomePost.HomePostUrl}}" class="tm-intro-text tm-btn-primary ">Read More</a>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  {% endfor %}
+</div>
+{% endblock %}

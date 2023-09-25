@@ -1,0 +1,32 @@
+{% extends 'primary.html' %}
+{% block primary %}
+<div>
+    <section id="hero" class=" tm-parallax pt-5">
+      
+        <div class=" tm-hero-text-container">
+              <div id="frm">
+                  <form action="" method="POST">
+                      {% csrf_token %}
+                      <div>
+                          <input class="container-fluid" type="text" placeholder="First Name" name="first_name"><br>
+                          <input class="container-fluid" type="text" placeholder="Last Name" name="last_name"><br>
+                          <input class="container-fluid" type="text" placeholder="User Name" name="username"><br>
+                          <input class="container-fluid" type="email" placeholder="Email" name="email"><br>
+                          <input class="container-fluid" type="password" placeholder="Password" name="password1"><br>
+                          <input class="container-fluid" type="password" placeholder="Confirm Password" name="password2"><br>
+                          <button class="btn" type="submit">Register</button>
+                      </div>
+                  </form>
+                  <div>
+                      {% for message in messages %}
+                        <div>
+                            <p class="para">{{message}}</p>
+                        </div>
+                      {% endfor %}
+                  </div>
+              </div>
+               
+        </div>
+        </section>
+</div>
+{% endblock %}
